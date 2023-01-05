@@ -38,7 +38,7 @@ class TargetAPI:
     def delete(self, target_id: str):
         header = self.__header("DELETE", target_id=target_id)
 
-        response = requests.get(url=self.__url(target_id), headers=header)
+        response = requests.delete(url=self.__url(target_id), headers=header)
         self.__check_respose(response)
 
     #######################################################################
@@ -104,7 +104,7 @@ class TargetAPI:
         print("\n\n###################################################################")
         print(r.request.url)
         print(r.request.headers)
-        # print(r.request.body)
+        print(r.request.body)
 
 
 import cv2
@@ -138,7 +138,9 @@ target_id = "3d2af960e5e64b869228012571f11d76"
 
 # api.get(target_id)
 
-api.post(json_obj)
+# api.post(json_obj)
+
+api.delete(target_id)
 
 # print(json_obj)
 
