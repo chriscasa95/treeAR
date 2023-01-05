@@ -21,18 +21,18 @@ class TargetAPI:
 
     def post(self, body: str):
         header = self.__header("POST", body=body)
-        print(header)
 
-        url = self.__url()
-        print(url)
-
-        response = requests.post(url=url, headers=header, json=body)
+        response = requests.post(url=self.__url(), headers=header, data=body)
         self.__check_respose(response)
 
-    def put(self, body: str):
-        header = self.__header("PUT", body=body)
+    def put(
+        self,
+        targrt_id: str,
+        body: str,
+    ):
+        header = self.__header("PUT", target_id=targrt_id, body=body)
 
-        response = requests.put(url=self.__url(), headers=header, json=body)
+        response = requests.put(url=self.__url(targrt_id), headers=header, data=body)
         self.__check_respose(response)
 
     def delete(self, target_id: str):
@@ -53,12 +53,14 @@ class TargetAPI:
         # RFC 1123 Date - example: Tue, 03 Jan 2023 13:43:38 GMT
         rfc_1123_date = formatdate(timeval=None, localtime=False, usegmt=True)
 
-        content_type = "application/json"
+        content_type = ""
         request_path = self.__request_path
 
-        if http_verb == "GET" or http_verb == "DELETE":
-            content_type = ""
+        if target_id:
             request_path = f"{request_path}/{target_id}"
+
+        if body:
+            content_type = "application/json"
 
         vws_auth = self.__vws_auth(
             http_verb, content_type, rfc_1123_date, request_path, body
@@ -102,7 +104,7 @@ class TargetAPI:
         print("\n\n###################################################################")
         print(r.request.url)
         print(r.request.headers)
-        print(r.request.body)
+        # print(r.request.body)
 
 
 import cv2
@@ -126,13 +128,17 @@ print(img_byte_size)
 
 jpg_as_b64 = base64.b64encode(cv2.imencode(".jpg", img)[1]).decode()
 
-dictonary = {"name": "PlantGardener", "width": 2, "image": jpg_as_b64}
+dictonary = {"name": "PlantGardener2", "width": 2, "image": jpg_as_b64}
 
 json_obj = json.dumps(dictonary, ensure_ascii=False, indent=4)
 
-# api.post(json_obj)
+target_id = "3d2af960e5e64b869228012571f11d76"
 
-api.get("e62506d511a44a37b13d481d73c80141")
+# api.put(target_id, json_obj)
+
+# api.get(target_id)
+
+api.post(json_obj)
 
 # print(json_obj)
 
