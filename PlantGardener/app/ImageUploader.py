@@ -12,11 +12,13 @@ MEGABYTE = 1024 * 1024
 
 
 class ImageUploader(TargetAPI):
-    def upload_image(self, img_path: str, img_name: str, width: str):
+    def upload_image(
+        self, img_path: str, img_name: str, width: str, metadata: str = ""
+    ):
         img = cv2.imread(img_path)
         img_name = self.__generate_img_name(img_name, 0)
 
-        self.__upload(img, img_name, width)
+        self.__upload(img, img_name, width, metadata)
 
     # def upload_multiple_images(self, img_paths: list[str]):
     #     pass
@@ -25,13 +27,18 @@ class ImageUploader(TargetAPI):
     #     pass
 
     def upload_video(
-        self, video_path: str, img_name: str, width: str, number_of_images: int
+        self,
+        video_path: str,
+        img_name: str,
+        width: str,
+        number_of_images: int,
+        metadata: str = "",
     ):
         extracted_frames = self.__extract_farmes(video_path, number_of_images)
 
         for idx, img in enumerate(extracted_frames):
             unique_img_name = self.__generate_img_name(img_name, idx)
-            self.__upload(img, unique_img_name, width)
+            self.__upload(img, unique_img_name, width, metadata)
 
     # def get_image_information(self, target_id: str):
     #     pass
@@ -42,15 +49,15 @@ class ImageUploader(TargetAPI):
     # def delete_image(self, target_id: str):
     #     pass
 
-    def __upload(self, img: Mat, img_name: str, width: str):
+    def __upload(self, img: Mat, img_name: str, width: str, metadata: str):
         print(f"upload: {img_name}")
         upload_path = "./uploaded"
 
         img_compressed = self.__compress_image(img)
 
-        html_body = self.__generate_body(img_compressed, img_name, width)
+        html_body = self.__generate_body(img_compressed, img_name, width, metadata)
 
-        # self._post(html_body)
+        self._post(html_body)
 
         # TODO: implement better solution
         try:
@@ -84,14 +91,23 @@ class ImageUploader(TargetAPI):
             # resize image
             image = cv2.resize(image, dim, interpolation=cv2.INTER_AREA)
             img_byte_size = self.__get_jpg_byte_size(image)
-            print(f"resizeto: {img_byte_size}")
+
+        print(f"image size: {img_byte_size} byte")
 
         return image
 
-    def __generate_body(self, image: Mat, name: str, width: float) -> str:
+    def __generate_body(
+        self, image: Mat, name: str, width: float, metadata: str
+    ) -> str:
         jpg_as_b64 = base64.b64encode(cv2.imencode(".jpg", image)[1]).decode()
+        metadata_as_b64 = base64.b64encode(metadata.encode("ascii")).decode()
 
-        dictonary = {"name": name, "width": width, "image": jpg_as_b64}
+        dictonary = {
+            "name": name,
+            "width": width,
+            "image": jpg_as_b64,
+            "application_metadata": metadata_as_b64,
+        }
 
         return json.dumps(dictonary, ensure_ascii=False, indent=4)
 
@@ -120,19 +136,3 @@ class ImageUploader(TargetAPI):
 
         print("Finished capturing!\n")
         return captured_frames
-
-
-if __name__ == "__main__":
-
-    server_access_key = "eb861e363ecf1563a824b290dd2e32b633d9d7b3"
-    server_secret_key = "0aba77815d86e9861597d6226b4c2f70493891db"
-
-    img_path = "./testleaf.jpg"
-    img_path2 = "./IMG_20221206_141113.jpg"
-    video_path = "./VID_20230110_104750.mp4"
-
-    uploader = ImageUploader(server_access_key, server_secret_key)
-
-    # uploader.upload_image(img_path, "Test", 1)
-
-    uploader.upload_video(video_path, "TestVid", 1, 30)
