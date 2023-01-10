@@ -4,6 +4,7 @@ import json
 import time
 import sys
 import os
+import filetype
 
 from cv2 import Mat
 from requests import Response
@@ -24,8 +25,24 @@ class ImageUploader(TargetAPI):
     # def upload_multiple_images(self, img_paths: list[str]):
     #     pass
 
-    # def upload_images_from_folder(self, folder_path: str):
-    #     pass
+    def upload_images_from_folder(
+        self, folder_path: str, img_name: str, width: str, metadata: str = ""
+    ) -> tuple[bool, Response]:
+        for filename in os.listdir(folder_path):
+
+            img_path = f"{folder_path}/{filename}"
+            idx = 0
+
+            # TODO: exclude .png
+            if filetype.is_image(img_path):
+                print(f"{filename} is a valid image...")
+
+                img = cv2.imread(img_path)
+
+                unique_img_name = self.__generate_img_name(img_name, idx)
+                [success, r] = self.__upload(img, unique_img_name, width, metadata)
+
+                idx += 1
 
     def upload_video(
         self,
