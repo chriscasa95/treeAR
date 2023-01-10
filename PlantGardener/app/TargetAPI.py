@@ -1,5 +1,6 @@
 import requests
 import hmac
+import base64
 
 from hashlib import sha1, md5
 from email.utils import formatdate
@@ -104,7 +105,7 @@ class TargetAPI:
         print("\n\n###################################################################")
         print(r.request.url)
         print(r.request.headers)
-        print(r.request.body)
+        # print(r.request.body)
 
 
 if __name__ == "__main__":
