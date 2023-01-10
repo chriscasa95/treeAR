@@ -52,9 +52,9 @@ class ImageUploader(TargetAPI):
         number_of_images: int,
         metadata: str = "",
     ) -> list[tuple[bool, Response]]:
-        extracted_frames = self.__extract_farmes(video_path, number_of_images)
-
         responses = []
+
+        extracted_frames = self.__extract_farmes(video_path, number_of_images)
 
         for idx, img in enumerate(extracted_frames):
             unique_img_name = self.__generate_img_name(img_name, idx)

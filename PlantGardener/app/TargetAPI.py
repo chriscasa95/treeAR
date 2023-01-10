@@ -112,7 +112,7 @@ class TargetAPI:
             print(json.loads(r.text))
 
             print(
-                "\n\n##################### SEND #########################################"
+                "\n\n##################### SENT #########################################"
             )
             print(r.request.url)
             print(r.request.headers)
