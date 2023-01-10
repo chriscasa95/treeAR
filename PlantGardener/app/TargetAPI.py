@@ -13,19 +13,19 @@ class TargetAPI:
         self.__access_key = server_access_key
         self.__server_secret = server_secret_key
 
-    def get(self, target_id: str):
+    def _get(self, target_id: str):
         header = self.__header("GET", target_id=target_id)
 
         response = requests.get(url=self.__url(target_id), headers=header)
         self.__check_respose(response)
 
-    def post(self, body: str):
+    def _post(self, body: str):
         header = self.__header("POST", body=body)
 
         response = requests.post(url=self.__url(), headers=header, data=body)
         self.__check_respose(response)
 
-    def put(
+    def _put(
         self,
         targrt_id: str,
         body: str,
@@ -35,7 +35,7 @@ class TargetAPI:
         response = requests.put(url=self.__url(targrt_id), headers=header, data=body)
         self.__check_respose(response)
 
-    def delete(self, target_id: str):
+    def _delete(self, target_id: str):
         header = self.__header("DELETE", target_id=target_id)
 
         response = requests.delete(url=self.__url(target_id), headers=header)
@@ -88,10 +88,10 @@ class TargetAPI:
         sign_body = f"{http_verb}\n{content_md5_hash}\n{content_type}\n{rfc_1123_date}\n{request_path}"
 
         # OAuth HMAC-SHA1
-        hash = hmac.new(self.__server_secret.encode(), sign_body.encode(), sha1)
+        hmac_hash = hmac.new(self.__server_secret.encode(), sign_body.encode(), sha1)
 
         # Encode to base64
-        hash_base64 = base64.b64encode(hash.digest()).decode()
+        hash_base64 = base64.b64encode(hmac_hash.digest()).decode()
 
         return f"VWS {self.__access_key}:{hash_base64}"
 
@@ -107,43 +107,44 @@ class TargetAPI:
         print(r.request.body)
 
 
-import cv2
-import os
-import base64
-import json
+if __name__ == "__main__":
 
-server_access_key = "eb861e363ecf1563a824b290dd2e32b633d9d7b3"
-server_secret_key = "0aba77815d86e9861597d6226b4c2f70493891db"
+    import cv2
+    import os
+    import base64
+    import json
 
-api = TargetAPI(server_access_key, server_secret_key)
+    server_access_key = "eb861e363ecf1563a824b290dd2e32b633d9d7b3"
+    server_secret_key = "0aba77815d86e9861597d6226b4c2f70493891db"
 
-img_path = "./testleaf.jpg"
+    api = TargetAPI(server_access_key, server_secret_key)
 
-# Using cv2.imread() method
-img = cv2.imread(img_path)
+    img_path = "./testleaf.jpg"
 
-img_byte_size = os.path.getsize(img_path)
+    # Using cv2.imread() method
+    img = cv2.imread(img_path)
 
-print(img_byte_size)
+    img_byte_size = os.path.getsize(img_path)
 
-jpg_as_b64 = base64.b64encode(cv2.imencode(".jpg", img)[1]).decode()
+    print(img_byte_size)
 
-dictonary = {"name": "PlantGardener2", "width": 2, "image": jpg_as_b64}
+    jpg_as_b64 = base64.b64encode(cv2.imencode(".jpg", img)[1]).decode()
 
-json_obj = json.dumps(dictonary, ensure_ascii=False, indent=4)
+    dictonary = {"name": "PlantGardener2", "width": 2, "image": jpg_as_b64}
 
-target_id = "3d2af960e5e64b869228012571f11d76"
+    json_obj = json.dumps(dictonary, ensure_ascii=False, indent=4)
 
-# api.put(target_id, json_obj)
+    target_id = "3d2af960e5e64b869228012571f11d76"
 
-# api.get(target_id)
+    # api.put(target_id, json_obj)
 
-# api.post(json_obj)
+    api.get(target_id)
 
-api.delete(target_id)
+    # api.post(json_obj)
 
-# print(json_obj)
+    # api.delete(target_id)
 
+    # print(json_obj)
 
-# Displaying the image
-# cv2.imshow("image", img)
+    # Displaying the image
+    # cv2.imshow("image", img)
