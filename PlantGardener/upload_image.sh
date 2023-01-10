@@ -1,5 +1,5 @@
 cat << EOF
-Usage: cli.py upload image [OPTIONS]
+Usage: plantgardener_cli.py upload image [OPTIONS]
 
 Options:
   -p, --path TEXT                [required]
@@ -12,7 +12,7 @@ Options:
 
 EOF
 
-python cli.py upload image \
+python plantgardener_cli.py upload image \
     -p data/IMG_20221206_141113.jpg \
     -ak eb861e363ecf1563a824b290dd2e32b633d9d7b3 \
     -sk 0aba77815d86e9861597d6226b4c2f70493891db \

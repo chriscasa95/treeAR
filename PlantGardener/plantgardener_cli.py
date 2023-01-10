@@ -1,7 +1,6 @@
 import click
 import json
 
-from pprint import pprint
 from app.ImageUploader import ImageUploader
 
 
