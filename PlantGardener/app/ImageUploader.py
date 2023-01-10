@@ -3,6 +3,7 @@ import base64
 import json
 import time
 import sys
+import os
 
 from cv2 import Mat
 from TargetAPI import TargetAPI
@@ -43,12 +44,21 @@ class ImageUploader(TargetAPI):
 
     def __upload(self, img: Mat, img_name: str, width: str):
         print(f"upload: {img_name}")
+        upload_path = "./uploaded"
 
         img_compressed = self.__compress_image(img)
 
         html_body = self.__generate_body(img_compressed, img_name, width)
 
         # self._post(html_body)
+
+        # TODO: implement better solution
+        try:
+            os.mkdir(upload_path)
+        except OSError as error:
+            # print(error)
+            pass
+        cv2.imwrite(f"{upload_path}/{img_name}.jpg", img_compressed)
 
     def __generate_img_name(self, img_name: str, counter: int) -> str:
         # ts stores the time in seconds
@@ -74,8 +84,7 @@ class ImageUploader(TargetAPI):
             # resize image
             image = cv2.resize(image, dim, interpolation=cv2.INTER_AREA)
             img_byte_size = self.__get_jpg_byte_size(image)
-
-        print(f"new size: {img_byte_size}")
+            print(f"resizeto: {img_byte_size}")
 
         return image
 
@@ -92,9 +101,9 @@ class ImageUploader(TargetAPI):
         cap = cv2.VideoCapture(video_path)
 
         number_of_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)) - 1
-        capture_nth_frame = number_of_frames / number_of_images
+        capture_nth_frame = number_of_frames / (number_of_images - 1)
         print(
-            f"Video has {number_of_frames}; Capture every {capture_nth_frame}th frame\nStart capturing..."
+            f"Video has {number_of_frames} frame; Capture every {int(capture_nth_frame)}th frame\nStart capturing..."
         )
 
         count = 0
@@ -102,7 +111,6 @@ class ImageUploader(TargetAPI):
             ret, frame = cap.read()
 
             if ret:
-                # cv2.imwrite("frame{:d}.jpg".format(count), frame)
                 captured_frames.append(frame)
                 count += capture_nth_frame  # i.e. at 30 fps, this advances one second
                 cap.set(cv2.CAP_PROP_POS_FRAMES, count)
@@ -118,9 +126,13 @@ if __name__ == "__main__":
 
     server_access_key = "eb861e363ecf1563a824b290dd2e32b633d9d7b3"
     server_secret_key = "0aba77815d86e9861597d6226b4c2f70493891db"
+
     img_path = "./testleaf.jpg"
-    img_path = "./IMG_20221206_141113.jpg"
+    img_path2 = "./IMG_20221206_141113.jpg"
+    video_path = "./VID_20230110_104750.mp4"
 
     uploader = ImageUploader(server_access_key, server_secret_key)
 
-    uploader.upload_image(img_path, "Test", 1)
+    # uploader.upload_image(img_path, "Test", 1)
+
+    uploader.upload_video(video_path, "TestVid", 1, 30)
