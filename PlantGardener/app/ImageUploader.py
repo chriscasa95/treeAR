@@ -6,6 +6,7 @@ import sys
 import os
 
 from cv2 import Mat
+from requests import Response
 from app.TargetAPI import TargetAPI
 
 MEGABYTE = 1024 * 1024
@@ -14,11 +15,11 @@ MEGABYTE = 1024 * 1024
 class ImageUploader(TargetAPI):
     def upload_image(
         self, img_path: str, img_name: str, width: str, metadata: str = ""
-    ):
+    ) -> tuple[bool, Response]:
         img = cv2.imread(img_path)
         img_name = self.__generate_img_name(img_name, 0)
 
-        self.__upload(img, img_name, width, metadata)
+        return self.__upload(img, img_name, width, metadata)
 
     # def upload_multiple_images(self, img_paths: list[str]):
     #     pass
@@ -33,12 +34,21 @@ class ImageUploader(TargetAPI):
         width: str,
         number_of_images: int,
         metadata: str = "",
-    ):
+    ) -> list[tuple[bool, Response]]:
         extracted_frames = self.__extract_farmes(video_path, number_of_images)
+
+        responses = []
 
         for idx, img in enumerate(extracted_frames):
             unique_img_name = self.__generate_img_name(img_name, idx)
-            self.__upload(img, unique_img_name, width, metadata)
+            [success, r] = self.__upload(img, unique_img_name, width, metadata)
+
+            if not success:
+                break
+
+            responses.append([success, r])
+
+        return responses
 
     # def get_image_information(self, target_id: str):
     #     pass
@@ -49,23 +59,30 @@ class ImageUploader(TargetAPI):
     # def delete_image(self, target_id: str):
     #     pass
 
-    def __upload(self, img: Mat, img_name: str, width: str, metadata: str):
-        print(f"upload: {img_name}")
+    def __upload(
+        self, img: Mat, img_name: str, width: str, metadata: str
+    ) -> tuple[bool, Response]:
+        print(f"upload: {img_name}...")
         upload_path = "./uploaded"
 
         img_compressed = self.__compress_image(img)
 
         html_body = self.__generate_body(img_compressed, img_name, width, metadata)
 
-        self._post(html_body)
+        [success, r] = self._post(html_body)
 
-        # TODO: implement better solution
-        try:
-            os.mkdir(upload_path)
-        except OSError as error:
-            # print(error)
-            pass
-        cv2.imwrite(f"{upload_path}/{img_name}.jpg", img_compressed)
+        if success:
+            # TODO: implement better solution
+            try:
+                os.mkdir(upload_path)
+            except OSError as error:
+                # print(error)
+                pass
+            cv2.imwrite(f"{upload_path}/{img_name}.jpg", img_compressed)
+
+            print("...success! :)\n")
+
+        return [success, r]
 
     def __generate_img_name(self, img_name: str, counter: int) -> str:
         # ts stores the time in seconds
@@ -123,6 +140,7 @@ class ImageUploader(TargetAPI):
         )
 
         count = 0
+
         while cap.isOpened():
             ret, frame = cap.read()
 

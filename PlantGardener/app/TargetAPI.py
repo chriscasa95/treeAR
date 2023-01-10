@@ -1,6 +1,7 @@
 import requests
 import hmac
 import base64
+import json
 
 from hashlib import sha1, md5
 from email.utils import formatdate
@@ -14,33 +15,33 @@ class TargetAPI:
         self.__access_key = server_access_key
         self.__server_secret = server_secret_key
 
-    def _get(self, target_id: str):
+    def _get(self, target_id: str) -> tuple[bool, Response]:
         header = self.__header("GET", target_id=target_id)
-
         response = requests.get(url=self.__url(target_id), headers=header)
-        self.__check_respose(response)
 
-    def _post(self, body: str):
+        return self.__check_respose(response)
+
+    def _post(self, body: str) -> tuple[bool, Response]:
         header = self.__header("POST", body=body)
-
         response = requests.post(url=self.__url(), headers=header, data=body)
-        self.__check_respose(response)
+
+        return self.__check_respose(response)
 
     def _put(
         self,
         targrt_id: str,
         body: str,
-    ):
+    ) -> tuple[bool, Response]:
         header = self.__header("PUT", target_id=targrt_id, body=body)
-
         response = requests.put(url=self.__url(targrt_id), headers=header, data=body)
-        self.__check_respose(response)
 
-    def _delete(self, target_id: str):
+        return self.__check_respose(response)
+
+    def _delete(self, target_id: str) -> tuple[bool, Response]:
         header = self.__header("DELETE", target_id=target_id)
-
         response = requests.delete(url=self.__url(target_id), headers=header)
-        self.__check_respose(response)
+
+        return self.__check_respose(response)
 
     #######################################################################
 
@@ -96,13 +97,25 @@ class TargetAPI:
 
         return f"VWS {self.__access_key}:{hash_base64}"
 
-    def __check_respose(self, r: Response):
-        # print("\n\n###################################################################")
-        print(r.status_code)
-        # print(r.headers)
-        # print(r.content)
+    def __check_respose(self, r: Response) -> tuple[bool, Response]:
 
-        # print("\n\n###################################################################")
-        # print(r.request.url)
-        # print(r.request.headers)
-        # print(r.request.body)
+        if r.status_code < 300:
+
+            return [True, r]
+
+        else:
+            print(
+                "\n\n##################### RECEIVED #####################################"
+            )
+            print(r.status_code)
+            print(r.headers)
+            print(json.loads(r.text))
+
+            print(
+                "\n\n##################### SEND #########################################"
+            )
+            print(r.request.url)
+            print(r.request.headers)
+            # print(r.request.body)
+
+            return [False, r]
