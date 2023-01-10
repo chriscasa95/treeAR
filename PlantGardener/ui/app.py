@@ -2,77 +2,18 @@ import PySimpleGUI as sg
 import ctypes
 import platform
 
+__version__ = "v0.1"
+
 sg.theme("DarkBlue")  # Add a touch of color
 # All the stuff inside your window.
 
-upload_image_layout = [
-    [sg.T("Select Image:")],
-    [
-        sg.In(sg.user_settings_get_entry("-editor program-", ""), k="-EDITOR PROGRAM-"),
-        sg.FileBrowse(file_types=(("img", ".jpg .JPG"),)),
-    ],
-]
-
-upload_folder_layout = [
-    [
-        sg.Combo(
-            sorted(sg.user_settings_get_entry("-folder names-", [])),
-            default_value=sg.user_settings_get_entry("-demos folder-", "get_demo_path"),
-            size=(50, 1),
-            key="-FOLDERNAME-",
-        ),
-        sg.FolderBrowse("Folder Browse", target="-FOLDERNAME-"),
-    ],
-]
-
-upload_video_layout = [
-    [sg.T("Select Video:")],
-    [
-        sg.In(sg.user_settings_get_entry("-editor program-", ""), k="-EDITOR PROGRAM-"),
-        sg.FileBrowse(),
-    ],
-]
-
-upload_input_layout = [
-    [sg.T("Select Metadata:")],
-    [
-        sg.In(sg.user_settings_get_entry("-explorer program-"), k="-EXPLORER PROGRAM-"),
-        sg.FileBrowse(file_types=(("metadata", "*.json *.JSON"),)),
-    ],
-    [
-        sg.Text("Name: "),
-    ],
-    [
-        sg.InputText(),
-    ],
-    [
-        sg.Text("Width: "),
-    ],
-    [
-        sg.InputText(default_text=1),
-    ],
-]
-
-
-upload_layout = [
-    [sg.T("Upload", font="_ 16")],
-    [
-        sg.R("Image", group_id="upload_mode", default=True),
-        sg.R("Folder", group_id="upload_mode"),
-        sg.R("Video", group_id="upload_mode"),
-    ],
-    [sg.Col(upload_image_layout)],
-    # [sg.Col(upload_folder_layout)],
-    # [sg.Col(upload_video_layout)],
-    [sg.Col(upload_input_layout)],
-]
+import layout.upload_layout as upload
 
 
 update_layout = [
     [sg.T("Update", font="_ 16")],
     [sg.T("Not implemented")],
 ]
-
 
 get_layout = [
     [sg.T("Get", font="_ 16")],
@@ -96,16 +37,43 @@ input_layout = [
     ],
     [
         sg.Text("Mode:                    "),
-        sg.R("Upload", group_id="mode", default=True),
-        sg.R("Update", group_id="mode"),
-        sg.R("Get", group_id="mode"),
-        sg.R("Delete", group_id="mode"),
+        sg.R(
+            "Upload",
+            enable_events=True,
+            group_id="mode",
+            k="upload_mode",
+            default=True,
+            disabled=True,
+        ),
+        sg.R(
+            "Update",
+            enable_events=True,
+            group_id="mode",
+            k="update_mode",
+            disabled=True,
+        ),
+        sg.R("Get", enable_events=True, group_id="mode", k="get_mode", disabled=True),
+        sg.R(
+            "Delete",
+            enable_events=True,
+            group_id="mode",
+            k="delete_mode",
+            disabled=True,
+        ),
     ],
     [sg.HSeparator()],
-    [sg.Col(upload_layout)],
-    # [sg.Col(update_layout)],
-    # [sg.Col(get_layout)],
-    # [sg.Col(delete_layout)],
+    [sg.Col(upload.layout, k="-UPLOAD_LAYOUT-", element_justification="l")],
+    [
+        sg.Col(
+            update_layout, k="-UPDATE_LAYOUT-", element_justification="l", visible=False
+        )
+    ],
+    [sg.Col(get_layout, k="-GET_LAYOUT-", element_justification="l", visible=False)],
+    [
+        sg.Col(
+            delete_layout, k="-DELETE_LAYOUT-", element_justification="l", visible=False
+        )
+    ],
 ]
 
 output_layout = [
@@ -123,12 +91,13 @@ output_layout = [
             reroute_cprint=True,
             autoscroll=True,
             background_color="grey",
+            text_color="black",
         )
     ],
 ]
 
 layout = [
-    [sg.T("Plantgardener", font="DEFAULT 25")],
+    [sg.T(f"Plantgardener {__version__}", font="DEFAULT 25")],
     [
         sg.Pane(
             [
@@ -164,35 +133,64 @@ while True:
 
     if event in ("Cancel", sg.WIN_CLOSED):
         break
-    # if event == "Ok":
-    #     sg.user_settings_set_entry("-demos folder-", values["-FOLDERNAME-"])
-    #     sg.user_settings_set_entry("-editor program-", values["-EDITOR PROGRAM-"])
-    #     sg.user_settings_set_entry("-theme-", values["-THEME-"])
-    #     sg.user_settings_set_entry(
-    #         "-folder names-",
-    #         list(
-    #             set(
-    #                 sg.user_settings_get_entry("-folder names-", [])
-    #                 + [
-    #                     values["-FOLDERNAME-"],
-    #                 ]
-    #             )
-    #         ),
-    #     )
-    #     sg.user_settings_set_entry("-explorer program-", values["-EXPLORER PROGRAM-"])
-    #     sg.user_settings_set_entry("-advanced mode-", values["-ADVANCED MODE-"])
-    #     sg.user_settings_set_entry("-dclick runs-", values["-DCLICK RUNS-"])
-    #     sg.user_settings_set_entry("-dclick edits-", values["-DCLICK EDITS-"])
-    #     sg.user_settings_set_entry("-dclick nothing-", values["-DCLICK NONE-"])
-    #     print("HI")
-    #     break
+    # window["-FOLDERNAME-"].hide_row()
+
     elif event == "Clear History":
         print("CLEAR")
 
-        # sg.user_settings_set_entry("-folder names-", [])
-        # sg.user_settings_set_entry("-last filename-", "")
-        # window["-FOLDERNAME-"].update(values=[], value="")
-        # window["-FOLDERNAME-"].hide_row()
+    if values["upload_mode"]:
+        print("upload_mode")
+        window["-UPLOAD_LAYOUT-"].unhide_row()
+        window["-UPDATE_LAYOUT-"].hide_row()
+        window["-GET_LAYOUT-"].hide_row()
+        window["-DELETE_LAYOUT-"].hide_row()
+
+    elif values["update_mode"]:
+        print("update_mode")
+        window["-UPLOAD_LAYOUT-"].hide_row()
+        window["-UPDATE_LAYOUT-"].unhide_row()
+        window["-GET_LAYOUT-"].hide_row()
+        window["-DELETE_LAYOUT-"].hide_row()
+
+        window["-UPDATE_LAYOUT-"]._visible = True
+
+    elif values["get_mode"]:
+        print("get_mode")
+        window["-UPLOAD_LAYOUT-"].hide_row()
+        window["-UPDATE_LAYOUT-"].hide_row()
+        window["-GET_LAYOUT-"].unhide_row()
+        window["-DELETE_LAYOUT-"].hide_row()
+
+    elif values["delete_mode"]:
+        print("delete_mode")
+        window["-UPLOAD_LAYOUT-"].hide_row()
+        window["-UPDATE_LAYOUT-"].hide_row()
+        window["-GET_LAYOUT-"].hide_row()
+        window["-DELETE_LAYOUT-"].unhide_row()
+
+    if values["image_mode"]:
+        window["-UPLOAD_IMAGE_LAYOUT-"].unhide_row()
+        window["-UPLOAD_FOLDER_LAYOUT-"].hide_row()
+        window["-UPLOAD_VIDEO_LAYOUT-"].hide_row()
+
+        window["-UPLOAD_INPUT_LAYOUT-"].hide_row()
+        window["-UPLOAD_INPUT_LAYOUT-"].unhide_row()
+
+    elif values["folder_mode"]:
+        window["-UPLOAD_IMAGE_LAYOUT-"].hide_row()
+        window["-UPLOAD_FOLDER_LAYOUT-"].unhide_row()
+        window["-UPLOAD_VIDEO_LAYOUT-"].hide_row()
+
+        window["-UPLOAD_INPUT_LAYOUT-"].hide_row()
+        window["-UPLOAD_INPUT_LAYOUT-"].unhide_row()
+
+    elif values["video_mode"]:
+        window["-UPLOAD_IMAGE_LAYOUT-"].hide_row()
+        window["-UPLOAD_FOLDER_LAYOUT-"].hide_row()
+        window["-UPLOAD_VIDEO_LAYOUT-"].unhide_row()
+
+        window["-UPLOAD_INPUT_LAYOUT-"].hide_row()
+        window["-UPLOAD_INPUT_LAYOUT-"].unhide_row()
 
 
 def make_dpi_aware():
