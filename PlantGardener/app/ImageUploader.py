@@ -3,6 +3,7 @@ import base64
 import json
 import os
 import sys
+import numpy as np
 
 from cv2 import Mat
 from TargetAPI import TargetAPI
@@ -15,8 +16,9 @@ class ImageUploader(TargetAPI):
         img = cv2.imread(img_path)
 
         img_compressed = self.__compress_image(img)
+        img_compressed = self.__analize_image(img_compressed)
 
-        html_body = self.__generate_body(img_compressed, img_name, width)
+        # html_body = self.__generate_body(img_compressed, img_name, width)
 
         # self._post(html_body)
 
@@ -38,18 +40,48 @@ class ImageUploader(TargetAPI):
     def delete_image(self, target_id: str):
         pass
 
-    def __compress_image(self, image, img_path) -> Mat:
-        img_byte_size = os.path.getsize(img_path)
+    def __compress_image(self, image: Mat) -> Mat:
+
+        img_byte_size = self.__get_jpg_byte_size(image)
+        scale_percent = 80  # percent of original size
+
+        while img_byte_size >= MEGABYTE:
+
+            width = int(image.shape[1] * scale_percent / 100)
+            height = int(image.shape[0] * scale_percent / 100)
+            dim = (width, height)
+
+            # resize image
+            image = cv2.resize(image, dim, interpolation=cv2.INTER_AREA)
+            img_byte_size = self.__get_jpg_byte_size(image)
+
+            print(f"loop: {img_byte_size}")
+
+        return image
+
+    def __get_jpg_byte_size(self, image: Mat) -> int:
+
+        return sys.getsizeof(cv2.imencode(".jpg", image)[1])
+
+    def __analize_image(self, image):
 
         buffer = cv2.imencode(".jpg", image)[1]
 
-        print(f"imgsize path: {img_byte_size}")
-        print(f"imgsize cv2: {sys.getsizeof(buffer)}")
+        # Converting the image into numpy array
+        data_encode = np.array(buffer)
 
-        if img_byte_size >= MEGABYTE:
-            pass
+        # Converting the array to bytes.
+        byte_encode = data_encode.tobytes()
 
-        pass
+        print(f"imgsize raw: {sys.getsizeof(image)}")
+        print(f"imgsize cv2: {sys.getsizeof(byte_encode)}")
+        print(f"imgsize buffer: {sys.getsizeof(buffer)}")
+
+        cv2.imwrite(os.path.join(".", "buffer.jpg"), image)
+
+        buffer_path = "./buffer.jpg"
+
+        print(f"imgsize path: {os.path.getsize(buffer_path)}")
 
     def __generate_body(self, image: Mat, name: str, width: float) -> str:
         jpg_as_b64 = base64.b64encode(cv2.imencode(".jpg", image)[1]).decode()
@@ -64,6 +96,7 @@ if __name__ == "__main__":
     server_access_key = "eb861e363ecf1563a824b290dd2e32b633d9d7b3"
     server_secret_key = "0aba77815d86e9861597d6226b4c2f70493891db"
     img_path = "./testleaf.jpg"
+    img_path = "./IMG_20221206_141113.jpg"
 
     uploader = ImageUploader(server_access_key, server_secret_key)
 
