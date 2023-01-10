@@ -62,3 +62,4 @@ crashlytics-build.properties
 com.ptc.vuforia.engine-*
 venv
 uploaded/
+__pycache__

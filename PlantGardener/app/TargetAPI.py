@@ -97,14 +97,14 @@ class TargetAPI:
         return f"VWS {self.__access_key}:{hash_base64}"
 
     def __check_respose(self, r: Response):
-        print("\n\n###################################################################")
+        # print("\n\n###################################################################")
         print(r.status_code)
-        print(r.headers)
-        print(r.content)
+        # print(r.headers)
+        # print(r.content)
 
-        print("\n\n###################################################################")
-        print(r.request.url)
-        print(r.request.headers)
+        # print("\n\n###################################################################")
+        # print(r.request.url)
+        # print(r.request.headers)
         # print(r.request.body)
 
 

@@ -6,7 +6,7 @@ import sys
 import os
 
 from cv2 import Mat
-from TargetAPI import TargetAPI
+from app.TargetAPI import TargetAPI
 
 MEGABYTE = 1024 * 1024
 
