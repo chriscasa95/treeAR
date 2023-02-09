@@ -24,6 +24,12 @@ Copy the file `com.ptc.vuforia.engine-x.x.x.tgz` into `./Packages/` folder.
 
 Replace x.x.x with the desired version number.
 
-### Open Project
+### Open Scene
 
-Should now work as expected.
+1. In the Unity Editor, click on the "File" menu and select "Open Scene".
+
+2. Navigate to the `Scenes` folder.
+
+3. Select the scene file and click "Open". The scene file should have the .unity extension.
+
+The project should now work as expected.
