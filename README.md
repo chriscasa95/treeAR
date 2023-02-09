@@ -20,7 +20,9 @@ Note: Before cloning a Git repository, it's important to check if the repository
 
 ### Add Vuforia package
 
-Copy the file `com.ptc.vuforia.engine-10.10.2.tgz` into `./Packages/` folder.
+Copy the file `com.ptc.vuforia.engine-x.x.x.tgz` into `./Packages/` folder.
+
+Replace x.x.x with the desired version number.
 
 ### Open Project
 
