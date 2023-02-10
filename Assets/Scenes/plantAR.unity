@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &86015437
 Transform:
   m_ObjectHideFlags: 0
@@ -5567,7 +5567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &962651673
 Transform:
   m_ObjectHideFlags: 0
@@ -10822,8 +10822,8 @@ MonoBehaviour:
   RuntimeOcclusion: 0
   mTrackableName: 
   mInitializedInEditor: 1
-  AccessKey: 779948755fa5d4babbc8c68dd46f0aa047cd986a
-  SecretKey: 8533f1f08f10569119e9baa5ebb6b75f166a25b5
+  AccessKey: 8b84fe79789893aae80a269db338b79318944364
+  SecretKey: 8b84fe79789893aae80a269db338b79318944364
 --- !u!114 &1850816993
 MonoBehaviour:
   m_ObjectHideFlags: 0

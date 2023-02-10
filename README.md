@@ -1,5 +1,14 @@
 # AR Plantrecognition
 
+## Change Database
+
+![change_client_keys](./docs/images/change_client_keys.png)
+
+1. Open `Cloud Recognition` element in the scene hierachy. 
+2. Change the `Client Access Key` and `Client Secret Key`. 
+3. Use the coresspondig server keys for the image-uploader tool.
+
+
 ## Setup
 
 Here are the steps you can follow to create a local Unity project by cloning a Git repository:
