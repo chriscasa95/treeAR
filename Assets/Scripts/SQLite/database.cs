@@ -9,59 +9,85 @@ using System.IO;
 public class database : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+
+    string databaseName = "tree.db";
+    Tree tree_obj= new Tree();
+
+    async void Start()
     {
-        
+        await GetTreeAsync("RoystoneaRegia_C1");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 
 
-    public async UniTask AddCustomerAsync(Customer customer)
+    public async UniTask<Tree> GetTreeAsync(string Plant_ID)
     {
-        var databasePath = Application.persistentDataPath + "/" + databaseName;
+        var databasePath = Application.streamingAssetsPath + "/" + databaseName;
         var db = new SQLiteAsyncConnection(databasePath);
 
-        await db.InsertAsync(customer);
-    }
+        var query = $"SELECT * FROM tree WHERE Plant_ID='{Plant_ID}';";
 
-    public async UniTask<Customer> GetCustomerAsync(int id)
-    {
-        var databasePath = Path.Combine(Application.persistentDataPath, databaseName);
-        var db = new SQLiteAsyncConnection(databasePath);
+        Tree tree = await db.FindWithQueryAsync<Tree>(query);
 
-        Customer customer = await db.GetAsync<Customer>(customer.Id);
-        return customer;
-    }
-
-    public async void Main()
-    {
-        var databasePath = $"{Application.persistentDataPath}/{databaseName}";
-        var db = new SQLiteAsyncConnection(databasePath);
-
-        await db.CreateTableAsync<Customer>();
-
-        await AddCustomerAsync(new Customer());
-        var customer = await GetCustomerAsync(0);
+        print(tree.Plant_ID);
+        print(tree.Plant_name_VN);
+        print(tree.Cone_hight_m);
+        return tree;
     }
 }
 
 
-public class Customer
+public class Tree
 {
-    [AutoIncrement, PrimaryKey]
-    public int Id { get; set; }
-
     [MaxLength(64)]
-    public string FirstName { get; set; }
+    public string Plant_ID { get; set; }
 
-    [MaxLength(64)]
-    public string LastName { get; set; }
+    [MaxLength(256)]
+    public string Plant_name_EN { get; set; }
 
-    [MaxLength(64), Indexed]
-    public string Email { get; set; }
+    [MaxLength(256)]
+    public string Plant_name_VN { get; set; }
+
+    public float Plant_size_m { get; set; }
+
+    [MaxLength(256)]
+    public string Plant_name_scientific { get; set; }
+
+    [MaxLength(256)]
+    public string Leaf_material_ID { get; set; }
+
+    public float Leaf_size_m { get; set; }
+
+    public int Leafe_amount { get; set; }
+
+    public float Cone_hight_m { get; set; }
+
+    public float Cone_width_m { get; set; }
+
+    public float LeaveFall_width_m { get; set; }
+
+
+    [MaxLength(256)]
+    public string Plant_family { get; set; }
+
+    [MaxLength(256)]
+    public string Occurrence { get; set; }
+
+    [MaxLength(256)]
+    public string Growing_conditions { get; set; }
+
+    [MaxLength(1024)]
+    public string Plant_description_long_EN { get; set; }
+
+    [MaxLength(1024)]
+    public string Plant_description_long_VN { get; set; }
+
+    [MaxLength(1024)]
+    public string Plant_description_long_DE { get; set; }
+
 }
