@@ -10016,7 +10016,7 @@ IL_001e:
 		Type_t* L_10 = ___objectType1;
 		NullCheck(L_9);
 		bool L_11;
-		L_11 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(22 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_9, L_10);
+		L_11 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(24 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_9, L_10);
 		if (!L_11)
 		{
 			goto IL_00b2;
@@ -10116,7 +10116,7 @@ IL_00b2:
 		Type_t* L_39 = ___objectType1;
 		NullCheck(L_38);
 		bool L_40;
-		L_40 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(22 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_38, L_39);
+		L_40 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(24 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_38, L_39);
 		if (!L_40)
 		{
 			goto IL_011a;
@@ -13584,7 +13584,7 @@ IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR bool XmlNodeConverter_IsXObj
 		Type_t* L_2 = ___valueType0;
 		NullCheck(L_1);
 		bool L_3;
-		L_3 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(22 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_1, L_2);
+		L_3 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(24 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_1, L_2);
 		return L_3;
 	}
 }
@@ -13606,7 +13606,7 @@ IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR bool XmlNodeConverter_IsXmlN
 		Type_t* L_2 = ___valueType0;
 		NullCheck(L_1);
 		bool L_3;
-		L_3 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(22 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_1, L_2);
+		L_3 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(24 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_1, L_2);
 		return L_3;
 	}
 }

@@ -373,6 +373,8 @@ struct TermInfoReader_t728E05197DD5DD57DCCCC27D1F6A0B6C5486EF97;
 struct TextInfo_tD3BAFCFD77418851E7D5CB8D2588F47019E414B4;
 // System.Type
 struct Type_t;
+// System.IO.UnexceptionalStreamWriter
+struct UnexceptionalStreamWriter_tF3DBFED31D3D9EAB7CD7B58F89F817D69DE71EDD;
 // System.Void
 struct Void_t4861ACF8F4594C3437BB48B6E56783494B843915;
 // System.Globalization.DateTimeFormatInfo/TokenHashValue
@@ -411,6 +413,7 @@ IL2CPP_EXTERN_C RuntimeClass* DateTimeParse_t4FB3E2A513F1775F6B2EC5C0762DC7CA2E6
 IL2CPP_EXTERN_C RuntimeClass* DayOfWeek_t726DBD527FF9B9D2A0352FB80C55EE2EBE56783D_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Dictionary_2_t46B2DB028096FA2B828359E52F37F3105A83AD83_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Dictionary_2_tFA0E7CD5951B83DD87A65E89D971A68E538F9470_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Exception_t_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* FileSystemEnumerableFactory_t07E8E9F0677BFB13D4C8995A085259ABD554562F_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* FileSystemEnumerable_1_tF87C4E8695D9DF204B68A5EE4054C3B765F86376_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* FileSystemName_tDF3D4DCE58F5592CA8BCEBC4B1F730C09F652F38_il2cpp_TypeInfo_var;
@@ -4106,6 +4109,11 @@ struct Type_t_StaticFields
 	MemberFilter_tF644F1AE82F611B677CE1964D5A3277DDA21D553* ___FilterNameIgnoreCase_6;
 };
 
+// System.IO.UnexceptionalStreamWriter
+struct UnexceptionalStreamWriter_tF3DBFED31D3D9EAB7CD7B58F89F817D69DE71EDD  : public StreamWriter_t6E7DF7D524AA3C018A65F62EE80779873ED4D1E4
+{
+};
+
 // System.ArgumentException
 struct ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263  : public SystemException_tCC48D868298F4C0705279823E34B00F4FBDB7295
 {
@@ -4854,6 +4862,18 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Span_1__ctor_mC9BE2938B716B4
 // System.Void System.Span`1<System.Byte>::.ctor(T&,System.Int32)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Span_1__ctor_m947BF95D54571BF3897F96822B7A8FDA5853497B_gshared_inline (Span_1_tDADAC65069DFE6B57C458109115ECD795ED39305* __this, uint8_t* ___ptr0, int32_t ___length1, const RuntimeMethod* method) ;
 
+// System.Void System.IO.StreamWriter::.ctor(System.IO.Stream,System.Text.Encoding,System.Int32,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StreamWriter__ctor_m07CDDF5BC8553960286FA1BFF8BBA2159835EBCC (StreamWriter_t6E7DF7D524AA3C018A65F62EE80779873ED4D1E4* __this, Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* ___stream0, Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* ___encoding1, int32_t ___bufferSize2, bool ___leaveOpen3, const RuntimeMethod* method) ;
+// System.Void System.IO.StreamWriter::Flush()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StreamWriter_Flush_m0AEFD85B08E303701226D4FEEF50497D92A66581 (StreamWriter_t6E7DF7D524AA3C018A65F62EE80779873ED4D1E4* __this, const RuntimeMethod* method) ;
+// System.Void System.IO.StreamWriter::Write(System.Char[],System.Int32,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void StreamWriter_Write_mE02DD312AFCC5AF2794F96FC3A8E521F2587D333 (StreamWriter_t6E7DF7D524AA3C018A65F62EE80779873ED4D1E4* __this, CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___buffer0, int32_t ___index1, int32_t ___count2, const RuntimeMethod* method) ;
+// System.Void System.IO.StreamWriter::Write(System.Char)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StreamWriter_Write_m2A48056A5E6D0CCA8E813C5D1D1D44276415A11B (StreamWriter_t6E7DF7D524AA3C018A65F62EE80779873ED4D1E4* __this, Il2CppChar ___value0, const RuntimeMethod* method) ;
+// System.Void System.IO.StreamWriter::Write(System.Char[])
+IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void StreamWriter_Write_mA6EEDCFC293614704BFFF1FF1F1B1780E7C67E18 (StreamWriter_t6E7DF7D524AA3C018A65F62EE80779873ED4D1E4* __this, CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___buffer0, const RuntimeMethod* method) ;
+// System.Void System.IO.StreamWriter::Write(System.String)
+IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void StreamWriter_Write_m1961836CD57985833261ABC980416118E24F83DA (StreamWriter_t6E7DF7D524AA3C018A65F62EE80779873ED4D1E4* __this, String_t* ___value0, const RuntimeMethod* method) ;
 // System.Void System.IO.StreamReader::.ctor(System.IO.Stream,System.Text.Encoding)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StreamReader__ctor_m7712DDC735E99B6833E2666ADFD8A06CB96A58B1 (StreamReader_t81027449065C1B0C339DB46241D8001A6F61130B* __this, Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* ___stream0, Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* ___encoding1, const RuntimeMethod* method) ;
 // System.Int32 System.IO.StreamReader::Peek()
@@ -4874,12 +4894,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t TermInfoDriver_Read_mDD15CF4A7519DBDF
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* TermInfoDriver_ReadLine_m30B6FC262A7CAAD9B9731D259104DA53A2992E90 (TermInfoDriver_t3FC9001561C5019958E953942242EED72C4AA2CF* __this, const RuntimeMethod* method) ;
 // System.String System.TermInfoDriver::ReadToEnd()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* TermInfoDriver_ReadToEnd_mF9259C5B6A639D035191F3946380212DBD65C6FA (TermInfoDriver_t3FC9001561C5019958E953942242EED72C4AA2CF* __this, const RuntimeMethod* method) ;
-// System.Void System.IO.StreamWriter::.ctor(System.IO.Stream,System.Text.Encoding,System.Int32,System.Boolean)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StreamWriter__ctor_m07CDDF5BC8553960286FA1BFF8BBA2159835EBCC (StreamWriter_t6E7DF7D524AA3C018A65F62EE80779873ED4D1E4* __this, Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* ___stream0, Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* ___encoding1, int32_t ___bufferSize2, bool ___leaveOpen3, const RuntimeMethod* method) ;
 // System.Boolean System.TermInfoDriver::get_Initialized()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool TermInfoDriver_get_Initialized_mBD30B804687340F54636E76581E98ECF722352F7_inline (TermInfoDriver_t3FC9001561C5019958E953942242EED72C4AA2CF* __this, const RuntimeMethod* method) ;
-// System.Void System.IO.StreamWriter::Write(System.Char[],System.Int32,System.Int32)
-IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void StreamWriter_Write_mE02DD312AFCC5AF2794F96FC3A8E521F2587D333 (StreamWriter_t6E7DF7D524AA3C018A65F62EE80779873ED4D1E4* __this, CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___buffer0, int32_t ___index1, int32_t ___count2, const RuntimeMethod* method) ;
 // System.Void System.Threading.Monitor::Exit(System.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Monitor_Exit_m05B2CF037E2214B3208198C282490A2A475653FA (RuntimeObject* ___obj0, const RuntimeMethod* method) ;
 // System.Void System.Threading.Monitor::Enter(System.Object,System.Boolean&)
@@ -4890,10 +4906,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool TermInfoDriver_IsSpecialKey_m3CFB7E17BEB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TermInfoDriver_WriteSpecialKey_m1824ADD9FEA7C438DD16C72EB161FE27C1D2F8F0 (TermInfoDriver_t3FC9001561C5019958E953942242EED72C4AA2CF* __this, Il2CppChar ___c0, const RuntimeMethod* method) ;
 // System.Void System.IO.CStreamWriter::InternalWriteChar(System.Char)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CStreamWriter_InternalWriteChar_m34145F97CB254D0299E62B2303E4112F3FBF84E5 (CStreamWriter_t3311453DAB9CB3E60FD80FD196E9421A8EDF8239* __this, Il2CppChar ___val0, const RuntimeMethod* method) ;
-// System.Void System.IO.StreamWriter::Write(System.String)
-IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void StreamWriter_Write_m1961836CD57985833261ABC980416118E24F83DA (StreamWriter_t6E7DF7D524AA3C018A65F62EE80779873ED4D1E4* __this, String_t* ___value0, const RuntimeMethod* method) ;
-// System.Void System.IO.StreamWriter::Write(System.Char)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StreamWriter_Write_m2A48056A5E6D0CCA8E813C5D1D1D44276415A11B (StreamWriter_t6E7DF7D524AA3C018A65F62EE80779873ED4D1E4* __this, Il2CppChar ___value0, const RuntimeMethod* method) ;
 // System.Char[] System.String::ToCharArray()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* String_ToCharArray_m0699A92AA3E744229EF29CB9D943C47DF4FE5B46 (String_t* __this, const RuntimeMethod* method) ;
 // System.Void System.IO.Enumeration.FileSystemEntry::set_Directory(System.ReadOnlySpan`1<System.Char>)
@@ -5914,6 +5926,187 @@ inline void Span_1__ctor_m947BF95D54571BF3897F96822B7A8FDA5853497B_inline (Span_
 {
 	((  void (*) (Span_1_tDADAC65069DFE6B57C458109115ECD795ED39305*, uint8_t*, int32_t, const RuntimeMethod*))Span_1__ctor_m947BF95D54571BF3897F96822B7A8FDA5853497B_gshared_inline)(__this, ___ptr0, ___length1, method);
 }
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void System.IO.UnexceptionalStreamWriter::.ctor(System.IO.Stream,System.Text.Encoding)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnexceptionalStreamWriter__ctor_m53698D5B086CA5299A487D660E1290DCE67CD692 (UnexceptionalStreamWriter_tF3DBFED31D3D9EAB7CD7B58F89F817D69DE71EDD* __this, Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* ___stream0, Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* ___encoding1, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&StreamWriter_t6E7DF7D524AA3C018A65F62EE80779873ED4D1E4_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* L_0 = ___stream0;
+		Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095* L_1 = ___encoding1;
+		il2cpp_codegen_runtime_class_init_inline(StreamWriter_t6E7DF7D524AA3C018A65F62EE80779873ED4D1E4_il2cpp_TypeInfo_var);
+		StreamWriter__ctor_m07CDDF5BC8553960286FA1BFF8BBA2159835EBCC(__this, L_0, L_1, ((int32_t)1024), (bool)1, NULL);
+		return;
+	}
+}
+// System.Void System.IO.UnexceptionalStreamWriter::Flush()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnexceptionalStreamWriter_Flush_m44DE1E496DA9D09ED3D974D5A8E9F331ADBFEB91 (UnexceptionalStreamWriter_tF3DBFED31D3D9EAB7CD7B58F89F817D69DE71EDD* __this, const RuntimeMethod* method) 
+{
+	il2cpp::utils::ExceptionSupportStack<RuntimeObject*, 1> __active_exceptions;
+	try
+	{// begin try (depth: 1)
+		StreamWriter_Flush_m0AEFD85B08E303701226D4FEEF50497D92A66581(__this, NULL);
+		goto IL_000b;
+	}// end try (depth: 1)
+	catch(Il2CppExceptionWrapper& e)
+	{
+		if(il2cpp_codegen_class_is_assignable_from (((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Exception_t_il2cpp_TypeInfo_var)), il2cpp_codegen_object_class(e.ex)))
+		{
+			IL2CPP_PUSH_ACTIVE_EXCEPTION(e.ex);
+			goto CATCH_0008;
+		}
+		throw e;
+	}
+
+CATCH_0008:
+	{// begin catch(System.Exception)
+		IL2CPP_POP_ACTIVE_EXCEPTION();
+		goto IL_000b;
+	}// end catch (depth: 1)
+
+IL_000b:
+	{
+		return;
+	}
+}
+// System.Void System.IO.UnexceptionalStreamWriter::Write(System.Char[],System.Int32,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnexceptionalStreamWriter_Write_m9732035F6E3A92A69095D023347D5C7C0F9EAC77 (UnexceptionalStreamWriter_tF3DBFED31D3D9EAB7CD7B58F89F817D69DE71EDD* __this, CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___buffer0, int32_t ___index1, int32_t ___count2, const RuntimeMethod* method) 
+{
+	il2cpp::utils::ExceptionSupportStack<RuntimeObject*, 1> __active_exceptions;
+	try
+	{// begin try (depth: 1)
+		CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_0 = ___buffer0;
+		int32_t L_1 = ___index1;
+		int32_t L_2 = ___count2;
+		StreamWriter_Write_mE02DD312AFCC5AF2794F96FC3A8E521F2587D333(__this, L_0, L_1, L_2, NULL);
+		goto IL_000e;
+	}// end try (depth: 1)
+	catch(Il2CppExceptionWrapper& e)
+	{
+		if(il2cpp_codegen_class_is_assignable_from (((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Exception_t_il2cpp_TypeInfo_var)), il2cpp_codegen_object_class(e.ex)))
+		{
+			IL2CPP_PUSH_ACTIVE_EXCEPTION(e.ex);
+			goto CATCH_000b;
+		}
+		throw e;
+	}
+
+CATCH_000b:
+	{// begin catch(System.Exception)
+		IL2CPP_POP_ACTIVE_EXCEPTION();
+		goto IL_000e;
+	}// end catch (depth: 1)
+
+IL_000e:
+	{
+		return;
+	}
+}
+// System.Void System.IO.UnexceptionalStreamWriter::Write(System.Char)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnexceptionalStreamWriter_Write_m42EE4C4A0BA015E6EADA14894261813E1D731D26 (UnexceptionalStreamWriter_tF3DBFED31D3D9EAB7CD7B58F89F817D69DE71EDD* __this, Il2CppChar ___value0, const RuntimeMethod* method) 
+{
+	il2cpp::utils::ExceptionSupportStack<RuntimeObject*, 1> __active_exceptions;
+	try
+	{// begin try (depth: 1)
+		Il2CppChar L_0 = ___value0;
+		StreamWriter_Write_m2A48056A5E6D0CCA8E813C5D1D1D44276415A11B(__this, L_0, NULL);
+		goto IL_000c;
+	}// end try (depth: 1)
+	catch(Il2CppExceptionWrapper& e)
+	{
+		if(il2cpp_codegen_class_is_assignable_from (((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Exception_t_il2cpp_TypeInfo_var)), il2cpp_codegen_object_class(e.ex)))
+		{
+			IL2CPP_PUSH_ACTIVE_EXCEPTION(e.ex);
+			goto CATCH_0009;
+		}
+		throw e;
+	}
+
+CATCH_0009:
+	{// begin catch(System.Exception)
+		IL2CPP_POP_ACTIVE_EXCEPTION();
+		goto IL_000c;
+	}// end catch (depth: 1)
+
+IL_000c:
+	{
+		return;
+	}
+}
+// System.Void System.IO.UnexceptionalStreamWriter::Write(System.Char[])
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnexceptionalStreamWriter_Write_mDD477599E98A5D8D74C737AD4F50555756B6C788 (UnexceptionalStreamWriter_tF3DBFED31D3D9EAB7CD7B58F89F817D69DE71EDD* __this, CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___value0, const RuntimeMethod* method) 
+{
+	il2cpp::utils::ExceptionSupportStack<RuntimeObject*, 1> __active_exceptions;
+	try
+	{// begin try (depth: 1)
+		CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* L_0 = ___value0;
+		StreamWriter_Write_mA6EEDCFC293614704BFFF1FF1F1B1780E7C67E18(__this, L_0, NULL);
+		goto IL_000c;
+	}// end try (depth: 1)
+	catch(Il2CppExceptionWrapper& e)
+	{
+		if(il2cpp_codegen_class_is_assignable_from (((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Exception_t_il2cpp_TypeInfo_var)), il2cpp_codegen_object_class(e.ex)))
+		{
+			IL2CPP_PUSH_ACTIVE_EXCEPTION(e.ex);
+			goto CATCH_0009;
+		}
+		throw e;
+	}
+
+CATCH_0009:
+	{// begin catch(System.Exception)
+		IL2CPP_POP_ACTIVE_EXCEPTION();
+		goto IL_000c;
+	}// end catch (depth: 1)
+
+IL_000c:
+	{
+		return;
+	}
+}
+// System.Void System.IO.UnexceptionalStreamWriter::Write(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnexceptionalStreamWriter_Write_m536D6C56F80D0F791FED3AB05B206FB50235BD35 (UnexceptionalStreamWriter_tF3DBFED31D3D9EAB7CD7B58F89F817D69DE71EDD* __this, String_t* ___value0, const RuntimeMethod* method) 
+{
+	il2cpp::utils::ExceptionSupportStack<RuntimeObject*, 1> __active_exceptions;
+	try
+	{// begin try (depth: 1)
+		String_t* L_0 = ___value0;
+		StreamWriter_Write_m1961836CD57985833261ABC980416118E24F83DA(__this, L_0, NULL);
+		goto IL_000c;
+	}// end try (depth: 1)
+	catch(Il2CppExceptionWrapper& e)
+	{
+		if(il2cpp_codegen_class_is_assignable_from (((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Exception_t_il2cpp_TypeInfo_var)), il2cpp_codegen_object_class(e.ex)))
+		{
+			IL2CPP_PUSH_ACTIVE_EXCEPTION(e.ex);
+			goto CATCH_0009;
+		}
+		throw e;
+	}
+
+CATCH_0009:
+	{// begin catch(System.Exception)
+		IL2CPP_POP_ACTIVE_EXCEPTION();
+		goto IL_000c;
+	}// end catch (depth: 1)
+
+IL_000c:
+	{
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"

@@ -26375,7 +26375,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Func_4_t714EA7575BC4411791EB413BE56D4DD1F8C57
 		L_2 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_1, NULL);
 		NullCheck(L_0);
 		Delegate_t* L_3;
-		L_3 = VirtualFuncInvoker1< Delegate_t*, Type_t* >::Invoke(44 /* System.Delegate System.Reflection.MethodInfo::CreateDelegate(System.Type) */, L_0, L_2);
+		L_3 = VirtualFuncInvoker1< Delegate_t*, Type_t* >::Invoke(46 /* System.Delegate System.Reflection.MethodInfo::CreateDelegate(System.Type) */, L_0, L_2);
 		return ((Func_4_t714EA7575BC4411791EB413BE56D4DD1F8C570B9*)Castclass((RuntimeObject*)L_3, Func_4_t714EA7575BC4411791EB413BE56D4DD1F8C570B9_il2cpp_TypeInfo_var));
 	}
 }
@@ -27867,7 +27867,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool ADP_IsCatchableExceptionType_mF95C2785B0
 		Type_t* L_18 = V_0;
 		NullCheck(L_17);
 		bool L_19;
-		L_19 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(22 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_17, L_18);
+		L_19 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(24 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_17, L_18);
 		return (bool)((((int32_t)L_19) == ((int32_t)0))? 1 : 0);
 	}
 

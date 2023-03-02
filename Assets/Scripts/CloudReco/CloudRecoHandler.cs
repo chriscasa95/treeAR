@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityEngine;
 using Vuforia;
 //using static UnityEngine.CullingGroup;
@@ -6,16 +7,17 @@ using Vuforia;
 public class CloudRecoHandler : MonoBehaviour
 {
     CloudRecoBehaviour mCloudRecoBehaviour;
-    private bool mIsScanning = false;
 
-    //private bool mTargetFound = false;
-    
     // static makes var a member of class, not instance
+    public static bool mIsScanning = false;
+    public static bool mTargetFound = false;
     public static string mTargetMetadata = "";
     public static string mTargetName = "";
     public static string mTargetId = "";
 
     public ImageTargetBehaviour ImageTargetTemplate;
+
+    Stopwatch sw = new Stopwatch();
 
     // Register cloud reco callbacks
     void Awake()
@@ -41,17 +43,17 @@ public class CloudRecoHandler : MonoBehaviour
     // Methods
     public void OnInitialized(CloudRecoBehaviour cloudRecoBehaviour)
     {
-        Debug.Log("Cloud Reco initialized");
+        print("Cloud Reco initialized");
     }
 
     public void OnInitError(CloudRecoBehaviour.InitError initError)
     {
-        Debug.Log("Cloud Reco init error " + initError.ToString());
+        print("Cloud Reco init error " + initError.ToString());
     }
 
     public void OnUpdateError(CloudRecoBehaviour.QueryError updateError)
     {
-        Debug.Log("Cloud Reco update error " + updateError.ToString());
+        print("Cloud Reco update error " + updateError.ToString());
 
     }
 
@@ -59,29 +61,41 @@ public class CloudRecoHandler : MonoBehaviour
     {
         mIsScanning = scanning;
 
-        Debug.Log("scanning: " + scanning);
-
         if (scanning)
         {
-            // Clear all known targets
-            
-            //mTargetFound = false;
-            //mTargetMetadata = "";
-            //mTargetName = "";
-            //mTargetId = "";
+            //Clear all known targets
+            if (sw.ElapsedMilliseconds > 10000)
+            {
+                mTargetFound = false;
+                sw.Stop();
+                sw.Reset();
+            }
         }
+
+        print("scanning: " + scanning);
+        print("Target found: " + mTargetFound);
     }
 
     // Here we handle a cloud target recognition event
     public void OnNewSearchResult(CloudRecoBehaviour.CloudRecoSearchResult cloudRecoSearchResult)
     {
         // Store the target metadata
-        //mTargetFound    = true;
+        mTargetFound = true;
+        sw.Start();
+
         mTargetMetadata = cloudRecoSearchResult.MetaData;
         mTargetName = cloudRecoSearchResult.TargetName;
         mTargetId = cloudRecoSearchResult.UniqueTargetId;
 
-        Debug.Log("mTargetName: " + mTargetName + " mTargetId: " + mTargetId);
+        print("mTargetName: " + mTargetName + " mTargetId: " + mTargetId);
+
+        GameObject plane = GameObject.Find("Ground Plane Stage");
+        GameObject image = GameObject.Find("ImageTarget");
+        Vector3 vec = image.transform.position;
+
+        vec.y = plane.transform.position.y;
+        plane.transform.position = vec;
+
 
         // Stop the scanning by disabling the behaviour
         //mCloudRecoBehaviour.enabled = false;
@@ -94,30 +108,4 @@ public class CloudRecoHandler : MonoBehaviour
         }
     }
 
-    void OnGUI()
-    {
-        //// Display current 'scanning' status
-        //GUI.Box(new Rect(100, 100, 200, 50), mIsScanning ? "Scanning" : "Not scanning");
-        //// Display metadata of latest detected cloud-target
-        //GUI.Box(new Rect(100, 200, 200, 50), "Metadata: " + mTargetMetadata);
-
-
-        //if (mTargetFound)
-        //{
-        //    GUI.Box(new Rect(100, 400, 200, 50), "Name: " + mTargetName);
-        //}
-
-
-        // If not scanning, show button
-        // so that user can restart cloud scanning
-        if (!mIsScanning)
-        {
-            if (GUI.Button(new Rect(100, 300, 200, 50), "Restart Scanning"))
-            {
-                // Reset Behaviour
-                mCloudRecoBehaviour.enabled = true;
-                mTargetMetadata = "";
-            }
-        }
-    }
 }

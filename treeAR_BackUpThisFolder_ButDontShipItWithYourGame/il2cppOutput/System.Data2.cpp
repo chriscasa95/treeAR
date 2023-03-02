@@ -12311,7 +12311,7 @@ IL_007b_1:
 				L_28 = DataColumn_get_DataType_mD6633BF8B7F6470C96791128AA8B1D7F736EBD0E_inline(L_27, NULL);
 				NullCheck(L_28);
 				String_t* L_29;
-				L_29 = VirtualFuncInvoker0< String_t* >::Invoke(25 /* System.String System.Type::get_AssemblyQualifiedName() */, L_28);
+				L_29 = VirtualFuncInvoker0< String_t* >::Invoke(27 /* System.String System.Type::get_AssemblyQualifiedName() */, L_28);
 				Exception_t* L_30;
 				L_30 = ExceptionBuilder_UDTImplementsIChangeTrackingButnotIRevertible_mDE241276E2311C5B24DFB91F77DA0254E5136FC8(L_29, NULL);
 				IL2CPP_RAISE_MANAGED_EXCEPTION(L_30, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&DataRow_RejectChanges_m43BF31E837F1E95DF56BF7938CE77F18F2A039D0_RuntimeMethod_var)));

@@ -5,6 +5,8 @@ using SQLite;
 using SQLiteNetExtensions;
 using Cysharp.Threading.Tasks;
 using System.IO;
+using Unity.VisualScripting.FullSerializer;
+using UnityEngine.Networking;
 
 public class Database
 {
@@ -14,7 +16,7 @@ public class Database
 
     void Start()
     {
-        //await GetTreeAsync("RoystoneaRegia_C1");
+        //copy_db();
     }
 
     // Update is called once per frame
@@ -23,10 +25,25 @@ public class Database
       
     }
 
+    //public static System.Collections.IEnumerable copy_db()
+    //{
+    //    UnityWebRequest uwr = new UnityWebRequest(Path.Combine(Application.streamingAssetsPath, "tree.db"));
+    //    uwr.downloadHandler = new DownloadHandlerBuffer();
+    //    yield return uwr.Send();
+    //    if (uwr.isNetworkError || uwr.isHttpError)
+    //    {
+    //        Debug.Log(uwr.error);
+    //    }
+    //    else
+    //    {
+    //        File.WriteAllBytes(Path.Combine(Application.persistentDataPath, "tree.db"), uwr.downloadHandler.data);
+    //    }
+    //}
 
     public async UniTask<Tree> GetTreeAsync(string Plant_ID)
     {
-        var databasePath = Application.streamingAssetsPath + "/" + databaseName;
+        var databasePath = Path.Combine(Application.streamingAssetsPath, databaseName);
+
         var db = new SQLiteAsyncConnection(databasePath);
 
         var query = $"SELECT * FROM tree WHERE Plant_ID='{Plant_ID}';";

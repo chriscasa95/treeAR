@@ -5497,7 +5497,7 @@ IL_009c:
 		RuntimeObject* L_46 = V_0;
 		NullCheck(((Type_t*)CastclassClass((RuntimeObject*)L_46, Type_t_il2cpp_TypeInfo_var)));
 		String_t* L_47;
-		L_47 = VirtualFuncInvoker0< String_t* >::Invoke(25 /* System.String System.Type::get_AssemblyQualifiedName() */, ((Type_t*)CastclassClass((RuntimeObject*)L_46, Type_t_il2cpp_TypeInfo_var)));
+		L_47 = VirtualFuncInvoker0< String_t* >::Invoke(27 /* System.String System.Type::get_AssemblyQualifiedName() */, ((Type_t*)CastclassClass((RuntimeObject*)L_46, Type_t_il2cpp_TypeInfo_var)));
 		NullCheck(L_45);
 		ArrayElementTypeCheck (L_45, L_47);
 		(L_45)->SetAt(static_cast<il2cpp_array_size_t>(0), (RuntimeObject*)L_47);
@@ -11601,7 +11601,7 @@ IL_0057:
 		PropertyInfo_t* L_16 = V_0;
 		NullCheck(L_16);
 		RuntimeObject* L_17;
-		L_17 = VirtualFuncInvoker2< RuntimeObject*, RuntimeObject*, ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* >::Invoke(24 /* System.Object System.Reflection.PropertyInfo::GetValue(System.Object,System.Object[]) */, L_16, NULL, (ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918*)NULL);
+		L_17 = VirtualFuncInvoker2< RuntimeObject*, RuntimeObject*, ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* >::Invoke(28 /* System.Object System.Reflection.PropertyInfo::GetValue(System.Object,System.Object[]) */, L_16, NULL, (ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918*)NULL);
 		__this->____defaultValue_8 = L_17;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____defaultValue_8), (void*)L_17);
 	}
@@ -20219,7 +20219,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AttributeCollection_tD55D3E17234E299E07B6071F
 		L_2 = VirtualFuncInvoker0< Type_t* >::Invoke(16 /* System.Type System.ComponentModel.PropertyDescriptor::get_PropertyType() */, __this);
 		NullCheck(L_1);
 		bool L_3;
-		L_3 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(22 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_1, L_2);
+		L_3 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(24 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_1, L_2);
 		if (!L_3)
 		{
 			goto IL_004b;
@@ -23002,11 +23002,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Exception_t* ExceptionBuilder_DefaultValueDat
 		Type_t* L_3 = ___defaultType1;
 		NullCheck(L_3);
 		String_t* L_4;
-		L_4 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_3);
+		L_4 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_3);
 		Type_t* L_5 = ___columnType2;
 		NullCheck(L_5);
 		String_t* L_6;
-		L_6 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_5);
+		L_6 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_5);
 		String_t* L_7;
 		L_7 = SR_Format_m2D47419D639CFB9D65BB6145ADA03733CFED1D2B(_stringLiteral4E1ECC5FA8C9E6D3D76B9684174BA3C2FCBB59A1, L_2, L_4, L_6, NULL);
 		Exception_t* L_8 = ___inner3;
@@ -23020,11 +23020,11 @@ IL_0026:
 		Type_t* L_10 = ___defaultType1;
 		NullCheck(L_10);
 		String_t* L_11;
-		L_11 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_10);
+		L_11 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_10);
 		Type_t* L_12 = ___columnType2;
 		NullCheck(L_12);
 		String_t* L_13;
-		L_13 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_12);
+		L_13 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_12);
 		String_t* L_14;
 		L_14 = SR_Format_m821F9C4ABA354C3C712A210A72AFE77AF17D6C79(_stringLiteral98475CC1C5E2479A82F1456A3EDAB82DADDF91E2, L_11, L_13, NULL);
 		Exception_t* L_15 = ___inner3;
@@ -23047,11 +23047,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Exception_t* ExceptionBuilder_DefaultValueCol
 		Type_t* L_1 = ___defaultType1;
 		NullCheck(L_1);
 		String_t* L_2;
-		L_2 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_1);
+		L_2 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_1);
 		Type_t* L_3 = ___columnType2;
 		NullCheck(L_3);
 		String_t* L_4;
-		L_4 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_3);
+		L_4 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_3);
 		String_t* L_5;
 		L_5 = SR_Format_m2D47419D639CFB9D65BB6145ADA03733CFED1D2B(_stringLiteral073FF98070C90D68B365F8E0BF2A9C4CBB7D3A26, L_0, L_2, L_4, NULL);
 		Exception_t* L_6 = ___inner3;
@@ -23541,7 +23541,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Exception_t* ExceptionBuilder_InvalidDataColu
 		Type_t* L_0 = ___type0;
 		NullCheck(L_0);
 		String_t* L_1;
-		L_1 = VirtualFuncInvoker0< String_t* >::Invoke(25 /* System.String System.Type::get_AssemblyQualifiedName() */, L_0);
+		L_1 = VirtualFuncInvoker0< String_t* >::Invoke(27 /* System.String System.Type::get_AssemblyQualifiedName() */, L_0);
 		String_t* L_2;
 		L_2 = SR_Format_m96CC1849D4162E4D28B2E9488B0EFE01565619D5(_stringLiteral17CD4BC9E86716134416D961EF735C013DF782AA, L_1, NULL);
 		Exception_t* L_3;
@@ -26127,11 +26127,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Exception_t* ExceptionBuilder_ConvertFailed_m
 		Type_t* L_0 = ___type10;
 		NullCheck(L_0);
 		String_t* L_1;
-		L_1 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_0);
+		L_1 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_0);
 		Type_t* L_2 = ___type21;
 		NullCheck(L_2);
 		String_t* L_3;
-		L_3 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_2);
+		L_3 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_2);
 		String_t* L_4;
 		L_4 = SR_Format_m821F9C4ABA354C3C712A210A72AFE77AF17D6C79(_stringLiteral54908347DC0162D40CD4A12BCC473FC2AE3CED74, L_1, L_3, NULL);
 		Exception_t* L_5;

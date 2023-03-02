@@ -22234,7 +22234,7 @@ IL_0166:
 		Type_t* L_73 = V_10;
 		NullCheck(L_72);
 		bool L_74;
-		L_74 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(22 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_72, L_73);
+		L_74 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(24 /* System.Boolean System.Type::IsAssignableFrom(System.Type) */, L_72, L_73);
 		if (!L_74)
 		{
 			goto IL_01c2;
@@ -22271,7 +22271,7 @@ IL_01c2:
 		L_85 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_84, NULL);
 		NullCheck(L_83);
 		bool L_86;
-		L_86 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(21 /* System.Boolean System.Type::IsSubclassOf(System.Type) */, L_83, L_85);
+		L_86 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(23 /* System.Boolean System.Type::IsSubclassOf(System.Type) */, L_83, L_85);
 		if (!L_86)
 		{
 			goto IL_0212;
@@ -22307,7 +22307,7 @@ IL_0212:
 		L_97 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_96, NULL);
 		NullCheck(L_95);
 		bool L_98;
-		L_98 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(21 /* System.Boolean System.Type::IsSubclassOf(System.Type) */, L_95, L_97);
+		L_98 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(23 /* System.Boolean System.Type::IsSubclassOf(System.Type) */, L_95, L_97);
 		if (!L_98)
 		{
 			goto IL_0230;
@@ -22328,7 +22328,7 @@ IL_0230:
 		L_102 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_101, NULL);
 		NullCheck(L_100);
 		bool L_103;
-		L_103 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(21 /* System.Boolean System.Type::IsSubclassOf(System.Type) */, L_100, L_102);
+		L_103 = VirtualFuncInvoker1< bool, Type_t* >::Invoke(23 /* System.Boolean System.Type::IsSubclassOf(System.Type) */, L_100, L_102);
 		if (!L_103)
 		{
 			goto IL_027b;

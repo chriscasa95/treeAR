@@ -12757,7 +12757,7 @@ IL_0007:
 		L_12 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(L_11, NULL);
 		NullCheck(L_12);
 		String_t* L_13;
-		L_13 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_12);
+		L_13 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_12);
 		Constraint_t0A8908A502F0A089936D95EF44F76F9628CFB50A* L_14 = V_1;
 		NullCheck(L_14);
 		String_t* L_15;
@@ -12858,7 +12858,7 @@ IL_00ac:
 		L_39 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(L_38, NULL);
 		NullCheck(L_39);
 		String_t* L_40;
-		L_40 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_39);
+		L_40 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_39);
 		Constraint_t0A8908A502F0A089936D95EF44F76F9628CFB50A* L_41 = V_1;
 		NullCheck(L_41);
 		String_t* L_42;
@@ -24342,7 +24342,7 @@ CATCH_02fb:
 		Type_t* L_142 = V_2;
 		NullCheck(L_142);
 		String_t* L_143;
-		L_143 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_142);
+		L_143 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_142);
 		Exception_t* L_144;
 		L_144 = ExceptionBuilder_CannotConvert_m397C3143A4BFB1CC22E648843C086AEFB9F61341(L_141, L_143, NULL);
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_144, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&XDRSchema_HandleColumn_m2EF49E61813DEB290D2B152BD6FB102134375B06_RuntimeMethod_var)));
@@ -28236,7 +28236,7 @@ IL_00f1:
 		Type_t* L_49 = V_4;
 		NullCheck(L_49);
 		String_t* L_50;
-		L_50 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_49);
+		L_50 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_49);
 		Exception_t* L_51;
 		L_51 = ExceptionBuilder_CannotConvert_m397C3143A4BFB1CC22E648843C086AEFB9F61341(L_48, L_50, NULL);
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_51, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&XMLSchema_SetProperties_m734CF815260B5BD8650F9FD0E2233EED77C17319_RuntimeMethod_var)));

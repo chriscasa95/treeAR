@@ -21087,7 +21087,7 @@ IL_007b:
 		Type_t* L_29 = ___destinationType1;
 		NullCheck(L_29);
 		Type_t* L_30;
-		L_30 = VirtualFuncInvoker0< Type_t* >::Invoke(46 /* System.Type System.Type::GetElementType() */, L_29);
+		L_30 = VirtualFuncInvoker0< Type_t* >::Invoke(48 /* System.Type System.Type::GetElementType() */, L_29);
 		V_1 = L_30;
 		Type_t* L_31 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(XmlBaseConverter_tB935E170055CCB49F182D426AC09B2D4C0DA919D_il2cpp_TypeInfo_var);

@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43270741}
   m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 1.975, y: 0.856, z: 8.948}
+  m_LocalPosition: {x: 1.975, y: 1.053, z: 6.531}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -498,7 +498,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9bcebcee2676142469fa5df7e307edd4, type: 2}
+  - {fileID: 2100000, guid: 3c7e9bc4ce46b7e419c169cdc1d1ea4b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5278,6 +5278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb3048eb01fa2c458a31b791e7feaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug_on: 1
   windowRect:
     serializedVersion: 2
     x: 0
@@ -6332,6 +6333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb3048eb01fa2c458a31b791e7feaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug_on: 0
   windowRect:
     serializedVersion: 2
     x: 0
@@ -12257,4 +12259,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6aba849ee3a6844bb0f131311fbd7c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tMP_Texttext: {fileID: 2106056867}

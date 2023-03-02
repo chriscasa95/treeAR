@@ -5103,7 +5103,7 @@ IL_0137:
 		Type_t* L_64 = V_5;
 		NullCheck(L_64);
 		String_t* L_65;
-		L_65 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_64);
+		L_65 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_64);
 		Exception_t* L_66;
 		L_66 = ExceptionBuilder_CannotConvert_m397C3143A4BFB1CC22E648843C086AEFB9F61341(L_63, L_65, NULL);
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_66, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&XSDSchema_SetProperties_mD1FEA6AD6B72E57D1627A0E250C040E8FC6ECE8F_RuntimeMethod_var)));
@@ -14763,7 +14763,7 @@ CATCH_035c:
 		Type_t* L_192 = V_0;
 		NullCheck(L_192);
 		String_t* L_193;
-		L_193 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_192);
+		L_193 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_192);
 		Exception_t* L_194;
 		L_194 = ExceptionBuilder_CannotConvert_m397C3143A4BFB1CC22E648843C086AEFB9F61341(L_191, L_193, NULL);
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_194, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&XSDSchema_HandleSimpleTypeSimpleContentColumn_m56DE0B097956705DE57E123C7FD3308E1CA3A5A7_RuntimeMethod_var)));
@@ -15330,7 +15330,7 @@ CATCH_0270:
 		Type_t* L_143 = V_0;
 		NullCheck(L_143);
 		String_t* L_144;
-		L_144 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_143);
+		L_144 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_143);
 		Exception_t* L_145;
 		L_145 = ExceptionBuilder_CannotConvert_m397C3143A4BFB1CC22E648843C086AEFB9F61341(L_142, L_144, NULL);
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_145, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&XSDSchema_HandleSimpleContentColumn_m3C476AF226A6AA9385D183D5B236741726A03077_RuntimeMethod_var)));
@@ -16072,7 +16072,7 @@ CATCH_03a1:
 		Type_t* L_183 = V_0;
 		NullCheck(L_183);
 		String_t* L_184;
-		L_184 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_183);
+		L_184 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_183);
 		Exception_t* L_185;
 		L_185 = ExceptionBuilder_CannotConvert_m397C3143A4BFB1CC22E648843C086AEFB9F61341(L_182, L_184, NULL);
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_185, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&XSDSchema_HandleAttributeColumn_mD32FAFABA57F2354BB5BA8C0EE0F3E8C3BC319B6_RuntimeMethod_var)));
@@ -16170,7 +16170,7 @@ CATCH_03f9:
 		Type_t* L_203 = V_0;
 		NullCheck(L_203);
 		String_t* L_204;
-		L_204 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_203);
+		L_204 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_203);
 		Exception_t* L_205;
 		L_205 = ExceptionBuilder_CannotConvert_m397C3143A4BFB1CC22E648843C086AEFB9F61341(L_202, L_204, NULL);
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_205, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&XSDSchema_HandleAttributeColumn_mD32FAFABA57F2354BB5BA8C0EE0F3E8C3BC319B6_RuntimeMethod_var)));
@@ -17279,7 +17279,7 @@ CATCH_0543:
 		Type_t* L_258 = V_0;
 		NullCheck(L_258);
 		String_t* L_259;
-		L_259 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_258);
+		L_259 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_258);
 		Exception_t* L_260;
 		L_260 = ExceptionBuilder_CannotConvert_m397C3143A4BFB1CC22E648843C086AEFB9F61341(L_257, L_259, NULL);
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_260, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&XSDSchema_HandleElementColumn_m6177B2ABB71E6E07E9F215028C5B5BCEE345BE38_RuntimeMethod_var)));

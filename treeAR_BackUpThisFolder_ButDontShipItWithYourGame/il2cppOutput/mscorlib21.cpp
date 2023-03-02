@@ -12424,7 +12424,7 @@ CATCH_0013:
 		L_1 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(__this, NULL);
 		NullCheck(L_1);
 		String_t* L_2;
-		L_2 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_1);
+		L_2 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_1);
 		ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263* L_3 = V_0;
 		TypeInitializationException_t4AC643E420681E6E92054934A1CB34CCA7C739A1* L_4 = (TypeInitializationException_t4AC643E420681E6E92054934A1CB34CCA7C739A1*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&TypeInitializationException_t4AC643E420681E6E92054934A1CB34CCA7C739A1_il2cpp_TypeInfo_var)));
 		NullCheck(L_4);
@@ -13958,7 +13958,7 @@ CATCH_0013:
 		L_1 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(__this, NULL);
 		NullCheck(L_1);
 		String_t* L_2;
-		L_2 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_1);
+		L_2 = VirtualFuncInvoker0< String_t* >::Invoke(28 /* System.String System.Type::get_FullName() */, L_1);
 		ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263* L_3 = V_0;
 		TypeInitializationException_t4AC643E420681E6E92054934A1CB34CCA7C739A1* L_4 = (TypeInitializationException_t4AC643E420681E6E92054934A1CB34CCA7C739A1*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&TypeInitializationException_t4AC643E420681E6E92054934A1CB34CCA7C739A1_il2cpp_TypeInfo_var)));
 		NullCheck(L_4);

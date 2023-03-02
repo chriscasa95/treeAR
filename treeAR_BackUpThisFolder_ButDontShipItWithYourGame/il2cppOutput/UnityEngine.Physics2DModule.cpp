@@ -16,6 +16,8 @@
 struct List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D;
 // System.Collections.Generic.List`1<UnityEngine.Rigidbody2D>
 struct List_1_tCD5F926D25FC8BFAF39E4BE6F879C1FA11501C76;
+// UnityEngine.ContactPoint2D[]
+struct ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949;
 // UnityEngine.Rigidbody2D[]
 struct Rigidbody2DU5BU5D_tC196E4DEEA396B4A08BFAE8A94A45FD14403C9CF;
 // UnityEngine.Collider2D
@@ -28,11 +30,14 @@ struct String_t;
 struct Void_t4861ACF8F4594C3437BB48B6E56783494B843915;
 
 IL2CPP_EXTERN_C RuntimeClass* Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* List_1_tCD5F926D25FC8BFAF39E4BE6F879C1FA11501C76_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Physics2D_t64C0DB5246067DAC2E83A52558A0AC68AF3BE94D_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C const RuntimeMethod* List_1__ctor_m18046D64FD3FA546A46227B43826992EE5D5F434_RuntimeMethod_var;
+struct ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801;
 
+struct ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949;
 
 IL2CPP_EXTERN_C_BEGIN
 IL2CPP_EXTERN_C_END
@@ -160,6 +165,82 @@ struct Void_t4861ACF8F4594C3437BB48B6E56783494B843915
 	};
 };
 
+// UnityEngine.Collision2D
+struct Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B  : public RuntimeObject
+{
+	// System.Int32 UnityEngine.Collision2D::m_Collider
+	int32_t ___m_Collider_0;
+	// System.Int32 UnityEngine.Collision2D::m_OtherCollider
+	int32_t ___m_OtherCollider_1;
+	// System.Int32 UnityEngine.Collision2D::m_Rigidbody
+	int32_t ___m_Rigidbody_2;
+	// System.Int32 UnityEngine.Collision2D::m_OtherRigidbody
+	int32_t ___m_OtherRigidbody_3;
+	// UnityEngine.Vector2 UnityEngine.Collision2D::m_RelativeVelocity
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_RelativeVelocity_4;
+	// System.Int32 UnityEngine.Collision2D::m_Enabled
+	int32_t ___m_Enabled_5;
+	// System.Int32 UnityEngine.Collision2D::m_ContactCount
+	int32_t ___m_ContactCount_6;
+	// UnityEngine.ContactPoint2D[] UnityEngine.Collision2D::m_ReusedContacts
+	ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949* ___m_ReusedContacts_7;
+	// UnityEngine.ContactPoint2D[] UnityEngine.Collision2D::m_LegacyContacts
+	ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949* ___m_LegacyContacts_8;
+};
+// Native definition for P/Invoke marshalling of UnityEngine.Collision2D
+struct Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshaled_pinvoke
+{
+	int32_t ___m_Collider_0;
+	int32_t ___m_OtherCollider_1;
+	int32_t ___m_Rigidbody_2;
+	int32_t ___m_OtherRigidbody_3;
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_RelativeVelocity_4;
+	int32_t ___m_Enabled_5;
+	int32_t ___m_ContactCount_6;
+	ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801* ___m_ReusedContacts_7;
+	ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801* ___m_LegacyContacts_8;
+};
+// Native definition for COM marshalling of UnityEngine.Collision2D
+struct Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshaled_com
+{
+	int32_t ___m_Collider_0;
+	int32_t ___m_OtherCollider_1;
+	int32_t ___m_Rigidbody_2;
+	int32_t ___m_OtherRigidbody_3;
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_RelativeVelocity_4;
+	int32_t ___m_Enabled_5;
+	int32_t ___m_ContactCount_6;
+	ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801* ___m_ReusedContacts_7;
+	ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801* ___m_LegacyContacts_8;
+};
+
+// UnityEngine.ContactPoint2D
+struct ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801 
+{
+	// UnityEngine.Vector2 UnityEngine.ContactPoint2D::m_Point
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_Point_0;
+	// UnityEngine.Vector2 UnityEngine.ContactPoint2D::m_Normal
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_Normal_1;
+	// UnityEngine.Vector2 UnityEngine.ContactPoint2D::m_RelativeVelocity
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_RelativeVelocity_2;
+	// System.Single UnityEngine.ContactPoint2D::m_Separation
+	float ___m_Separation_3;
+	// System.Single UnityEngine.ContactPoint2D::m_NormalImpulse
+	float ___m_NormalImpulse_4;
+	// System.Single UnityEngine.ContactPoint2D::m_TangentImpulse
+	float ___m_TangentImpulse_5;
+	// System.Int32 UnityEngine.ContactPoint2D::m_Collider
+	int32_t ___m_Collider_6;
+	// System.Int32 UnityEngine.ContactPoint2D::m_OtherCollider
+	int32_t ___m_OtherCollider_7;
+	// System.Int32 UnityEngine.ContactPoint2D::m_Rigidbody
+	int32_t ___m_Rigidbody_8;
+	// System.Int32 UnityEngine.ContactPoint2D::m_OtherRigidbody
+	int32_t ___m_OtherRigidbody_9;
+	// System.Int32 UnityEngine.ContactPoint2D::m_Enabled
+	int32_t ___m_Enabled_10;
+};
+
 // UnityEngine.Object
 struct Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C  : public RuntimeObject
 {
@@ -219,9 +300,47 @@ struct Rigidbody2D_tBEBE9523CF4448544085AF46BF7E10AA499F320F  : public Component
 struct Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52  : public Behaviour_t01970CFBBA658497AE30F311C447DB0440BAB7FA
 {
 };
+
+// UnityEngine.Joint2D
+struct Joint2D_tFA088656425446CDA98555EC8A0E5FE25945F843  : public Behaviour_t01970CFBBA658497AE30F311C447DB0440BAB7FA
+{
+};
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
+// UnityEngine.ContactPoint2D[]
+struct ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949  : public RuntimeArray
+{
+	ALIGN_FIELD (8) ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801 m_Items[1];
+
+	inline ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801 GetAt(il2cpp_array_size_t index) const
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items[index];
+	}
+	inline ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801* GetAddressAt(il2cpp_array_size_t index)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items + index;
+	}
+	inline void SetAt(il2cpp_array_size_t index, ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801 value)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		m_Items[index] = value;
+	}
+	inline ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801 GetAtUnchecked(il2cpp_array_size_t index) const
+	{
+		return m_Items[index];
+	}
+	inline ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801* GetAddressAtUnchecked(il2cpp_array_size_t index)
+	{
+		return m_Items + index;
+	}
+	inline void SetAtUnchecked(il2cpp_array_size_t index, ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801 value)
+	{
+		m_Items[index] = value;
+	}
+};
 
 
 // System.Void System.Collections.Generic.List`1<System.Object>::.ctor()
@@ -275,6 +394,238 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Physics2D__cctor_m7B7A8EEEE744CE27534A7A
 		return;
 	}
 }
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// Conversion methods for marshalling of: UnityEngine.Collision2D
+IL2CPP_EXTERN_C void Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshal_pinvoke(const Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B& unmarshaled, Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshaled_pinvoke& marshaled)
+{
+	marshaled.___m_Collider_0 = unmarshaled.___m_Collider_0;
+	marshaled.___m_OtherCollider_1 = unmarshaled.___m_OtherCollider_1;
+	marshaled.___m_Rigidbody_2 = unmarshaled.___m_Rigidbody_2;
+	marshaled.___m_OtherRigidbody_3 = unmarshaled.___m_OtherRigidbody_3;
+	marshaled.___m_RelativeVelocity_4 = unmarshaled.___m_RelativeVelocity_4;
+	marshaled.___m_Enabled_5 = unmarshaled.___m_Enabled_5;
+	marshaled.___m_ContactCount_6 = unmarshaled.___m_ContactCount_6;
+	if (unmarshaled.___m_ReusedContacts_7 != NULL)
+	{
+		il2cpp_array_size_t _unmarshaledm_ReusedContacts_Length = (unmarshaled.___m_ReusedContacts_7)->max_length;
+		marshaled.___m_ReusedContacts_7 = il2cpp_codegen_marshal_allocate_array<ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801>(_unmarshaledm_ReusedContacts_Length);
+		for (int32_t i = 0; i < ARRAY_LENGTH_AS_INT32(_unmarshaledm_ReusedContacts_Length); i++)
+		{
+			(marshaled.___m_ReusedContacts_7)[i] = (unmarshaled.___m_ReusedContacts_7)->GetAtUnchecked(static_cast<il2cpp_array_size_t>(i));
+		}
+	}
+	else
+	{
+		marshaled.___m_ReusedContacts_7 = NULL;
+	}
+	if (unmarshaled.___m_LegacyContacts_8 != NULL)
+	{
+		il2cpp_array_size_t _unmarshaledm_LegacyContacts_Length = (unmarshaled.___m_LegacyContacts_8)->max_length;
+		marshaled.___m_LegacyContacts_8 = il2cpp_codegen_marshal_allocate_array<ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801>(_unmarshaledm_LegacyContacts_Length);
+		for (int32_t i = 0; i < ARRAY_LENGTH_AS_INT32(_unmarshaledm_LegacyContacts_Length); i++)
+		{
+			(marshaled.___m_LegacyContacts_8)[i] = (unmarshaled.___m_LegacyContacts_8)->GetAtUnchecked(static_cast<il2cpp_array_size_t>(i));
+		}
+	}
+	else
+	{
+		marshaled.___m_LegacyContacts_8 = NULL;
+	}
+}
+IL2CPP_EXTERN_C void Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshal_pinvoke_back(const Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshaled_pinvoke& marshaled, Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B& unmarshaled)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	int32_t unmarshaledm_Collider_temp_0 = 0;
+	unmarshaledm_Collider_temp_0 = marshaled.___m_Collider_0;
+	unmarshaled.___m_Collider_0 = unmarshaledm_Collider_temp_0;
+	int32_t unmarshaledm_OtherCollider_temp_1 = 0;
+	unmarshaledm_OtherCollider_temp_1 = marshaled.___m_OtherCollider_1;
+	unmarshaled.___m_OtherCollider_1 = unmarshaledm_OtherCollider_temp_1;
+	int32_t unmarshaledm_Rigidbody_temp_2 = 0;
+	unmarshaledm_Rigidbody_temp_2 = marshaled.___m_Rigidbody_2;
+	unmarshaled.___m_Rigidbody_2 = unmarshaledm_Rigidbody_temp_2;
+	int32_t unmarshaledm_OtherRigidbody_temp_3 = 0;
+	unmarshaledm_OtherRigidbody_temp_3 = marshaled.___m_OtherRigidbody_3;
+	unmarshaled.___m_OtherRigidbody_3 = unmarshaledm_OtherRigidbody_temp_3;
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 unmarshaledm_RelativeVelocity_temp_4;
+	memset((&unmarshaledm_RelativeVelocity_temp_4), 0, sizeof(unmarshaledm_RelativeVelocity_temp_4));
+	unmarshaledm_RelativeVelocity_temp_4 = marshaled.___m_RelativeVelocity_4;
+	unmarshaled.___m_RelativeVelocity_4 = unmarshaledm_RelativeVelocity_temp_4;
+	int32_t unmarshaledm_Enabled_temp_5 = 0;
+	unmarshaledm_Enabled_temp_5 = marshaled.___m_Enabled_5;
+	unmarshaled.___m_Enabled_5 = unmarshaledm_Enabled_temp_5;
+	int32_t unmarshaledm_ContactCount_temp_6 = 0;
+	unmarshaledm_ContactCount_temp_6 = marshaled.___m_ContactCount_6;
+	unmarshaled.___m_ContactCount_6 = unmarshaledm_ContactCount_temp_6;
+	if (marshaled.___m_ReusedContacts_7 != NULL)
+	{
+		if (unmarshaled.___m_ReusedContacts_7 == NULL)
+		{
+			unmarshaled.___m_ReusedContacts_7 = reinterpret_cast<ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*>((ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*)SZArrayNew(ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949_il2cpp_TypeInfo_var, 1));
+			Il2CppCodeGenWriteBarrier((void**)(&unmarshaled.___m_ReusedContacts_7), (void*)reinterpret_cast<ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*>((ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*)SZArrayNew(ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949_il2cpp_TypeInfo_var, 1)));
+		}
+		il2cpp_array_size_t _arrayLength = (unmarshaled.___m_ReusedContacts_7)->max_length;
+		for (int32_t i = 0; i < ARRAY_LENGTH_AS_INT32(_arrayLength); i++)
+		{
+			(unmarshaled.___m_ReusedContacts_7)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(i), (marshaled.___m_ReusedContacts_7)[i]);
+		}
+	}
+	if (marshaled.___m_LegacyContacts_8 != NULL)
+	{
+		if (unmarshaled.___m_LegacyContacts_8 == NULL)
+		{
+			unmarshaled.___m_LegacyContacts_8 = reinterpret_cast<ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*>((ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*)SZArrayNew(ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949_il2cpp_TypeInfo_var, 1));
+			Il2CppCodeGenWriteBarrier((void**)(&unmarshaled.___m_LegacyContacts_8), (void*)reinterpret_cast<ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*>((ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*)SZArrayNew(ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949_il2cpp_TypeInfo_var, 1)));
+		}
+		il2cpp_array_size_t _arrayLength = (unmarshaled.___m_LegacyContacts_8)->max_length;
+		for (int32_t i = 0; i < ARRAY_LENGTH_AS_INT32(_arrayLength); i++)
+		{
+			(unmarshaled.___m_LegacyContacts_8)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(i), (marshaled.___m_LegacyContacts_8)[i]);
+		}
+	}
+}
+// Conversion method for clean up from marshalling of: UnityEngine.Collision2D
+IL2CPP_EXTERN_C void Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshal_pinvoke_cleanup(Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshaled_pinvoke& marshaled)
+{
+	if (marshaled.___m_ReusedContacts_7 != NULL)
+	{
+		il2cpp_codegen_marshal_free(marshaled.___m_ReusedContacts_7);
+		marshaled.___m_ReusedContacts_7 = NULL;
+	}
+	if (marshaled.___m_LegacyContacts_8 != NULL)
+	{
+		il2cpp_codegen_marshal_free(marshaled.___m_LegacyContacts_8);
+		marshaled.___m_LegacyContacts_8 = NULL;
+	}
+}
+// Conversion methods for marshalling of: UnityEngine.Collision2D
+IL2CPP_EXTERN_C void Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshal_com(const Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B& unmarshaled, Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshaled_com& marshaled)
+{
+	marshaled.___m_Collider_0 = unmarshaled.___m_Collider_0;
+	marshaled.___m_OtherCollider_1 = unmarshaled.___m_OtherCollider_1;
+	marshaled.___m_Rigidbody_2 = unmarshaled.___m_Rigidbody_2;
+	marshaled.___m_OtherRigidbody_3 = unmarshaled.___m_OtherRigidbody_3;
+	marshaled.___m_RelativeVelocity_4 = unmarshaled.___m_RelativeVelocity_4;
+	marshaled.___m_Enabled_5 = unmarshaled.___m_Enabled_5;
+	marshaled.___m_ContactCount_6 = unmarshaled.___m_ContactCount_6;
+	if (unmarshaled.___m_ReusedContacts_7 != NULL)
+	{
+		il2cpp_array_size_t _unmarshaledm_ReusedContacts_Length = (unmarshaled.___m_ReusedContacts_7)->max_length;
+		marshaled.___m_ReusedContacts_7 = il2cpp_codegen_marshal_allocate_array<ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801>(_unmarshaledm_ReusedContacts_Length);
+		for (int32_t i = 0; i < ARRAY_LENGTH_AS_INT32(_unmarshaledm_ReusedContacts_Length); i++)
+		{
+			(marshaled.___m_ReusedContacts_7)[i] = (unmarshaled.___m_ReusedContacts_7)->GetAtUnchecked(static_cast<il2cpp_array_size_t>(i));
+		}
+	}
+	else
+	{
+		marshaled.___m_ReusedContacts_7 = NULL;
+	}
+	if (unmarshaled.___m_LegacyContacts_8 != NULL)
+	{
+		il2cpp_array_size_t _unmarshaledm_LegacyContacts_Length = (unmarshaled.___m_LegacyContacts_8)->max_length;
+		marshaled.___m_LegacyContacts_8 = il2cpp_codegen_marshal_allocate_array<ContactPoint2D_t16A7EE2DDFB4FA3A09C6554E11F30CEDAEBFA801>(_unmarshaledm_LegacyContacts_Length);
+		for (int32_t i = 0; i < ARRAY_LENGTH_AS_INT32(_unmarshaledm_LegacyContacts_Length); i++)
+		{
+			(marshaled.___m_LegacyContacts_8)[i] = (unmarshaled.___m_LegacyContacts_8)->GetAtUnchecked(static_cast<il2cpp_array_size_t>(i));
+		}
+	}
+	else
+	{
+		marshaled.___m_LegacyContacts_8 = NULL;
+	}
+}
+IL2CPP_EXTERN_C void Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshal_com_back(const Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshaled_com& marshaled, Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B& unmarshaled)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	int32_t unmarshaledm_Collider_temp_0 = 0;
+	unmarshaledm_Collider_temp_0 = marshaled.___m_Collider_0;
+	unmarshaled.___m_Collider_0 = unmarshaledm_Collider_temp_0;
+	int32_t unmarshaledm_OtherCollider_temp_1 = 0;
+	unmarshaledm_OtherCollider_temp_1 = marshaled.___m_OtherCollider_1;
+	unmarshaled.___m_OtherCollider_1 = unmarshaledm_OtherCollider_temp_1;
+	int32_t unmarshaledm_Rigidbody_temp_2 = 0;
+	unmarshaledm_Rigidbody_temp_2 = marshaled.___m_Rigidbody_2;
+	unmarshaled.___m_Rigidbody_2 = unmarshaledm_Rigidbody_temp_2;
+	int32_t unmarshaledm_OtherRigidbody_temp_3 = 0;
+	unmarshaledm_OtherRigidbody_temp_3 = marshaled.___m_OtherRigidbody_3;
+	unmarshaled.___m_OtherRigidbody_3 = unmarshaledm_OtherRigidbody_temp_3;
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 unmarshaledm_RelativeVelocity_temp_4;
+	memset((&unmarshaledm_RelativeVelocity_temp_4), 0, sizeof(unmarshaledm_RelativeVelocity_temp_4));
+	unmarshaledm_RelativeVelocity_temp_4 = marshaled.___m_RelativeVelocity_4;
+	unmarshaled.___m_RelativeVelocity_4 = unmarshaledm_RelativeVelocity_temp_4;
+	int32_t unmarshaledm_Enabled_temp_5 = 0;
+	unmarshaledm_Enabled_temp_5 = marshaled.___m_Enabled_5;
+	unmarshaled.___m_Enabled_5 = unmarshaledm_Enabled_temp_5;
+	int32_t unmarshaledm_ContactCount_temp_6 = 0;
+	unmarshaledm_ContactCount_temp_6 = marshaled.___m_ContactCount_6;
+	unmarshaled.___m_ContactCount_6 = unmarshaledm_ContactCount_temp_6;
+	if (marshaled.___m_ReusedContacts_7 != NULL)
+	{
+		if (unmarshaled.___m_ReusedContacts_7 == NULL)
+		{
+			unmarshaled.___m_ReusedContacts_7 = reinterpret_cast<ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*>((ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*)SZArrayNew(ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949_il2cpp_TypeInfo_var, 1));
+			Il2CppCodeGenWriteBarrier((void**)(&unmarshaled.___m_ReusedContacts_7), (void*)reinterpret_cast<ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*>((ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*)SZArrayNew(ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949_il2cpp_TypeInfo_var, 1)));
+		}
+		il2cpp_array_size_t _arrayLength = (unmarshaled.___m_ReusedContacts_7)->max_length;
+		for (int32_t i = 0; i < ARRAY_LENGTH_AS_INT32(_arrayLength); i++)
+		{
+			(unmarshaled.___m_ReusedContacts_7)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(i), (marshaled.___m_ReusedContacts_7)[i]);
+		}
+	}
+	if (marshaled.___m_LegacyContacts_8 != NULL)
+	{
+		if (unmarshaled.___m_LegacyContacts_8 == NULL)
+		{
+			unmarshaled.___m_LegacyContacts_8 = reinterpret_cast<ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*>((ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*)SZArrayNew(ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949_il2cpp_TypeInfo_var, 1));
+			Il2CppCodeGenWriteBarrier((void**)(&unmarshaled.___m_LegacyContacts_8), (void*)reinterpret_cast<ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*>((ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949*)SZArrayNew(ContactPoint2DU5BU5D_t427621BF8902AE33C86E7BF384D9B2B5B781F949_il2cpp_TypeInfo_var, 1)));
+		}
+		il2cpp_array_size_t _arrayLength = (unmarshaled.___m_LegacyContacts_8)->max_length;
+		for (int32_t i = 0; i < ARRAY_LENGTH_AS_INT32(_arrayLength); i++)
+		{
+			(unmarshaled.___m_LegacyContacts_8)->SetAtUnchecked(static_cast<il2cpp_array_size_t>(i), (marshaled.___m_LegacyContacts_8)[i]);
+		}
+	}
+}
+// Conversion method for clean up from marshalling of: UnityEngine.Collision2D
+IL2CPP_EXTERN_C void Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshal_com_cleanup(Collision2D_t81E83212C969FDDE2AB84EBCA31502818EEAB85B_marshaled_com& marshaled)
+{
+	if (marshaled.___m_ReusedContacts_7 != NULL)
+	{
+		il2cpp_codegen_marshal_free(marshaled.___m_ReusedContacts_7);
+		marshaled.___m_ReusedContacts_7 = NULL;
+	}
+	if (marshaled.___m_LegacyContacts_8 != NULL)
+	{
+		il2cpp_codegen_marshal_free(marshaled.___m_LegacyContacts_8);
+		marshaled.___m_LegacyContacts_8 = NULL;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
@@ -395,6 +746,14 @@ IL2CPP_EXTERN_C  Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52* RaycastHi
 	_returnValue = RaycastHit2D_get_collider_mB56DFCD16B708852EEBDBB490BC8665DBF7487FD(_thisAdjusted, method);
 	return _returnValue;
 }
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
