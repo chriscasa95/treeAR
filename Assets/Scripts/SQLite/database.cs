@@ -6,16 +6,15 @@ using SQLiteNetExtensions;
 using Cysharp.Threading.Tasks;
 using System.IO;
 
-public class database : MonoBehaviour
+public class Database : MonoBehaviour
 {
     // Start is called before the first frame update
 
     string databaseName = "tree.db";
-    Tree tree_obj= new Tree();
 
     async void Start()
     {
-        await GetTreeAsync("RoystoneaRegia_C1");
+        //await GetTreeAsync("RoystoneaRegia_C1");
     }
 
     // Update is called once per frame
