@@ -96,7 +96,7 @@ public class ParticleGenerator : MonoBehaviour
     {
         try
         {
-            var lifeTime = 20;
+            var lifeTime = 10;
             var leafMultiplier = 10;
             tree = await database.GetTreeAsync(tree_name);
 
@@ -107,10 +107,22 @@ public class ParticleGenerator : MonoBehaviour
 
             // main
             var main = ps.main;
-            main.maxParticles = tree.Leafe_amount * leafMultiplier;
-            main.startSize = tree.Leaf_size_m;
+            main.maxParticles = 20000;
+            //main.maxParticles = tree.Leafe_amount * leafMultiplier;
             main.startLifetime = lifeTime;
             main.startSpeed = 1;
+
+            // leaf size
+            var constantMin = tree.Leaf_size_m - tree.Leaf_size_m * 0.2f;
+            var constantMax = tree.Leaf_size_m + tree.Leaf_size_m * 0.2f;
+            main.startSize = new ParticleSystem.MinMaxCurve(constantMin, constantMax);
+
+            main.gravityModifier = 0.5f;
+
+            // if palmtree :)
+            if (constantMin >= 1) { 
+                main.gravityModifier = 1.5f;
+            }
 
             // shape 
             var shape = ps.shape;
@@ -118,14 +130,14 @@ public class ParticleGenerator : MonoBehaviour
 
             // emission
             var emission = ps.emission;
-            emission.rateOverTime = main.maxParticles / lifeTime;
+            emission.rateOverTime = tree.Leafe_amount * leafMultiplier / lifeTime;
 
             // material
-            //psr.sharedMaterial = Resources.Load<Material>(tree.Leaf_material_ID);
+            psr.sharedMaterial = Resources.Load<Material>(tree.Leaf_material_ID);
         }
         catch (Exception e)
         {
-            //  Block of code to handle errors
+            print(e);
         }
        
     }
