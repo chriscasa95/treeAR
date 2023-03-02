@@ -5,28 +5,18 @@ using System.Text.RegularExpressions;
 using UnityEngine.Rendering;
 using Cysharp.Threading.Tasks;
 using Mono.Cecil.Cil;
+using System;
 
 [RequireComponent(typeof(ParticleSystem))]
 public class ParticleGenerator : MonoBehaviour
 {
+    Database database = new Database();
     Tree tree = null;
-    
-    string pos0 = "0";
-    string pos1 = "0";
-    string pos2 = "0";
-    string particleAmount = "100";
-    string emissionRate = "20";
-    string particleSize = "1";
-    string startSpeed = "1";
-    string startLifeTime = "10";
-    string coneRadius = "1";
+    string treeName = "HopeaOdorata_B1";
+
 
     void Start()
     {
-        Vector3 position = transform.position;
-        pos0 = string.Format("{0:N3}", position.x);
-        pos1 = string.Format("{0:N3}", position.y);
-        pos2 = string.Format("{0:N3}", position.z);
     }
 
     ParticleSystem ps
@@ -52,7 +42,7 @@ public class ParticleGenerator : MonoBehaviour
     private ParticleSystemRenderer _CachedRenderer;
 
 
-    public Rect windowRect = new Rect(0, 0, 400, 220);
+    public Rect windowRect = new Rect(0, 0, 200, 220);
 
     public bool includeChildren = true;
 
@@ -63,8 +53,9 @@ public class ParticleGenerator : MonoBehaviour
 
     void DrawWindowContents(int windowId)
     {
-        if (ps)
+        if (ps == true)
         {
+
             GUILayout.BeginHorizontal();
             GUILayout.Toggle(ps.isPlaying, "Playing");
             GUILayout.Toggle(ps.isEmitting, "Emitting");
@@ -88,66 +79,12 @@ public class ParticleGenerator : MonoBehaviour
             GUILayout.Label("Time(" + ps.time + ")");
             GUILayout.Label("Particle Count(" + ps.particleCount + ")");
             GUILayout.EndHorizontal();
-            
-            // Position
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("Pos_x:");
-            pos0 = GUILayout.TextArea(pos0, 10);
-            
-            GUILayout.Label("Pos_z:");
-            pos1 = GUILayout.TextArea(pos1, 10);
-            
-            GUILayout.Label("Pos_y:");
-            pos2 = GUILayout.TextArea(pos2, 10);
-            GUILayout.EndHorizontal();
-            
-
-            // Particle system
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("Max Amount:");
-            particleAmount = GUILayout.TextArea(particleAmount, 10);
-
-            GUILayout.Label("Emission R:");
-            emissionRate = GUILayout.TextArea(emissionRate, 10);
-
-            GUILayout.Label("LifeTime:");
-            startLifeTime = GUILayout.TextArea(startLifeTime, 10);
-            GUILayout.EndHorizontal();
-
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label("P. Size:");
-            particleSize = GUILayout.TextArea(particleSize, 10);
-
-            GUILayout.Label("Start Speed:");
-            startSpeed = GUILayout.TextArea(startSpeed, 10);
-
-            GUILayout.Label("Cone R:");
-            coneRadius = GUILayout.TextArea(coneRadius, 10);
+            treeName = GUILayout.TextArea(treeName, 100);
             GUILayout.EndHorizontal();
 
-
-            // position
-            gameObject.transform.position = new Vector3(float.Parse(pos0), float.Parse(pos1), float.Parse(pos2));
-
-            // main
-            var main = ps.main;
-            main.maxParticles = int.Parse(particleAmount);
-            main.startSize = float.Parse(particleSize);
-            main.startLifetime = float.Parse(startLifeTime);
-            main.startSpeed = float.Parse(startSpeed);
-
-            // shape 
-            var shape = ps.shape;
-            shape.radius = float.Parse(coneRadius);
-
-            // emission
-            var emission = ps.emission;
-            emission.rateOverTime = float.Parse(emissionRate);
-
-            // material
-            psr.sharedMaterial = Resources.Load<Material>("NewLeaves");
-
+            updateTree(treeName);
         }
         else
             GUILayout.Label("No Particle System found");
@@ -157,29 +94,39 @@ public class ParticleGenerator : MonoBehaviour
 
     async void updateTree(string tree_name)
     {
+        try
+        {
+            var lifeTime = 20;
+            var leafMultiplier = 10;
+            tree = await database.GetTreeAsync(tree_name);
 
-        Database database = new Database();
-        tree = await database.GetTreeAsync(tree_name);
+            // pos
+            Vector3 position = transform.position;
+            position.y = tree.Cone_hight_m;
+            gameObject.transform.position = position;
 
-        // pos
-        gameObject.transform.position = new Vector3(0, 0, tree.Cone_hight_m);
+            // main
+            var main = ps.main;
+            main.maxParticles = tree.Leafe_amount * leafMultiplier;
+            main.startSize = tree.Leaf_size_m;
+            main.startLifetime = lifeTime;
+            main.startSpeed = 1;
+
+            // shape 
+            var shape = ps.shape;
+            shape.radius = tree.Cone_width_m;
+
+            // emission
+            var emission = ps.emission;
+            emission.rateOverTime = main.maxParticles / lifeTime;
+
+            // material
+            //psr.sharedMaterial = Resources.Load<Material>(tree.Leaf_material_ID);
+        }
+        catch (Exception e)
+        {
+            //  Block of code to handle errors
+        }
        
-        // main
-        var main = ps.main;
-        main.maxParticles = tree.Leafe_amount;
-        main.startSize = tree.Leaf_size_m;
-        main.startLifetime = 100;
-        main.startSpeed = 1;
-
-        // shape 
-        var shape = ps.shape;
-        shape.radius = tree.Cone_width_m;
-
-        // emission
-        var emission = ps.emission;
-        emission.rateOverTime = main.maxParticles/100;
-
-        // material
-        //psr.sharedMaterial = Resources.Load<Material>(tree.Leaf_material_ID);
     }
 }
