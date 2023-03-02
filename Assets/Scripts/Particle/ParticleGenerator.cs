@@ -6,6 +6,9 @@ using UnityEngine.Rendering;
 using Cysharp.Threading.Tasks;
 using Mono.Cecil.Cil;
 using System;
+using UnityEngine.UI;
+using TMPro;
+
 
 [RequireComponent(typeof(ParticleSystem))]
 public class ParticleGenerator : MonoBehaviour
@@ -14,9 +17,9 @@ public class ParticleGenerator : MonoBehaviour
     Tree tree = null;
     string treeName = "HopeaOdorata_B1";
 
-
     void Start()
     {
+
     }
 
     ParticleSystem ps
@@ -96,6 +99,21 @@ public class ParticleGenerator : MonoBehaviour
     {
         try
         {
+            GameObject headline = GameObject.Find("headline");
+            GameObject plant_names = GameObject.Find("plant_names_txt");
+            GameObject plant_family = GameObject.Find("plant_family_txt");
+            GameObject occurence = GameObject.Find("occurence_txt");
+            GameObject growing_conditions = GameObject.Find("growing_conditions_txt");
+            GameObject info = GameObject.Find("info_txt");
+            var headline_txt = headline.GetComponent<TextMeshPro>();
+            var plant_names_txt = plant_names.GetComponent<TextMeshPro>();
+            var plant_family_txt = plant_family.GetComponent<TextMeshPro>();
+            var occurence_txt = occurence.GetComponent<TextMeshPro>();
+            var growing_conditions_txt = growing_conditions.GetComponent<TextMeshPro>();
+            var info_txt = info.GetComponent<TextMeshPro>();
+
+
+
             var lifeTime = 10;
             var leafMultiplier = 10;
             tree = await database.GetTreeAsync(tree_name);
@@ -134,6 +152,15 @@ public class ParticleGenerator : MonoBehaviour
 
             // material
             psr.sharedMaterial = Resources.Load<Material>(tree.Leaf_material_ID);
+
+            // text
+            headline_txt.text = tree.Plant_name_scientific;
+            plant_names_txt.text = tree.Plant_name_EN;
+            plant_family_txt.text = tree.Plant_family;
+            occurence_txt.text = tree.Occurrence;
+            growing_conditions_txt.text = tree.Growing_conditions;
+            info_txt.text = tree.Plant_description_long_EN;
+
         }
         catch (Exception e)
         {

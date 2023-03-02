@@ -6,13 +6,13 @@ using SQLiteNetExtensions;
 using Cysharp.Threading.Tasks;
 using System.IO;
 
-public class Database : MonoBehaviour
+public class Database
 {
     // Start is called before the first frame update
 
-    string databaseName = "tree.db";
+    readonly string databaseName = "tree.db";
 
-    async void Start()
+    void Start()
     {
         //await GetTreeAsync("RoystoneaRegia_C1");
     }
@@ -33,9 +33,6 @@ public class Database : MonoBehaviour
 
         Tree tree = await db.FindWithQueryAsync<Tree>(query);
 
-        print(tree.Plant_ID);
-        print(tree.Plant_name_VN);
-        print(tree.Cone_hight_m);
         return tree;
     }
 }

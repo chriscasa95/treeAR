@@ -8,7 +8,7 @@ public class CloudRecoHandler : MonoBehaviour
     CloudRecoBehaviour mCloudRecoBehaviour;
     private bool mIsScanning = false;
 
-    private bool mTargetFound = false;
+    //private bool mTargetFound = false;
     
     // static makes var a member of class, not instance
     public static string mTargetMetadata = "";
@@ -76,7 +76,7 @@ public class CloudRecoHandler : MonoBehaviour
     public void OnNewSearchResult(CloudRecoBehaviour.CloudRecoSearchResult cloudRecoSearchResult)
     {
         // Store the target metadata
-        mTargetFound    = true;
+        //mTargetFound    = true;
         mTargetMetadata = cloudRecoSearchResult.MetaData;
         mTargetName = cloudRecoSearchResult.TargetName;
         mTargetId = cloudRecoSearchResult.UniqueTargetId;
