@@ -35,7 +35,7 @@ def delete():
 @click.option("-ak", "--server_access_key", required=True, type=str)
 @click.option("-sk", "--server_secret_key", required=True, type=str)
 @click.option("-n", "--name", required=True, type=str)
-@click.option("-w", "--width", required=True, type=int, default=1)
+@click.option("-w", "--width", required=True, type=float, default=1)
 @click.option("-m", "--meta_path", type=str, default="", help="Path to JSON file.")
 def image(server_access_key, server_secret_key, path, name, width, meta_path):
     uploader = ImageUploader(server_access_key, server_secret_key)
@@ -49,7 +49,7 @@ def image(server_access_key, server_secret_key, path, name, width, meta_path):
 @click.option("-ak", "--server_access_key", required=True, type=str)
 @click.option("-sk", "--server_secret_key", required=True, type=str)
 @click.option("-n", "--name", required=True, type=str)
-@click.option("-w", "--width", required=True, type=int, default=1)
+@click.option("-w", "--width", required=True, type=float, default=1)
 @click.option("-m", "--meta_path", type=str, default="", help="Path to JSON file.")
 def folder(server_access_key, server_secret_key, path, name, width, meta_path):
     uploader = ImageUploader(server_access_key, server_secret_key)
@@ -63,7 +63,7 @@ def folder(server_access_key, server_secret_key, path, name, width, meta_path):
 @click.option("-ak", "--server_access_key", required=True, type=str)
 @click.option("-sk", "--server_secret_key", required=True, type=str)
 @click.option("-n", "--name", required=True, type=str)
-@click.option("-w", "--width", required=True, type=int, default=1)
+@click.option("-w", "--width", required=True, type=float, default=1)
 @click.option("-#", "--number_of_images", type=int, default=30)
 @click.option("-m", "--meta_path", type=str, default="", help="Path to JSON file.")
 def video(

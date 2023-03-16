@@ -48,7 +48,7 @@ class ImageUploader(TargetAPI):
         self,
         video_path: str,
         img_name: str,
-        width: str,
+        width: float,
         number_of_images: int,
         metadata: str = "",
     ) -> list[tuple[bool, Response]]:
@@ -77,7 +77,7 @@ class ImageUploader(TargetAPI):
     #     pass
 
     def __upload(
-        self, img: Mat, img_name: str, width: str, metadata: str
+        self, img: Mat, img_name: str, width: float, metadata: str
     ) -> tuple[bool, Response]:
         print(f"upload: {img_name}...")
         upload_path = "./uploaded"
